@@ -2,12 +2,14 @@
     "project1": {
         "title": "Ketika Bumi Bercerita Infographic",
         "description": "I collaborated with my team on a national-level data visualization competition, Hi-Tech competition organized by Politeknik Caltex Riau, where we proudly secured 2nd place. Our project aimed to raise public awareness about climate change by transforming complex environmental data into compelling, easy-to-understand visual narratives. I led the data analysis using Power BI to uncover key insights and translated those findings into impactful infographics using Canva. This project was a blend of analytical thinking and creative communication, designed to drive climate action through accessible and engaging data visualization.",
+        "coverImage": "assets/images/bumi.png",
         "previewImage": "assets/images/hitechh.jpg",
         "techTools": [
             { "name": "Power BI", "icon": "assets/images/logos/powerbi.png" },
             { "name": "Canva", "icon": "assets/images/logos/canva.png" }
         ],
         "techSkills": ["Data Analysis", "Data Visualization", "Graphic Design"],
+        "filterCategories": ["data-related", "competition"],
         "links": [
             { "text": "View Infographic", "url": "https://drive.google.com/file/d/1c9LIsymfflAvifYbt-N6ohB8dTIYi8vq/view?usp=sharing" }
         ]
@@ -15,6 +17,7 @@
     "project2": {
         "title": "Customer Satisfaction Analysis of Qatar Airways Infographic",
         "description": "Infographic presenting data-driven analysis of customer satisfaction with Qatar Airways. Using Python, I explored flight ratings, common complaints, service feedback, and more to uncover key patterns in passenger experience. The visuals highlight which routes receive the highest praise, what aspects customers frequently complain about, and how satisfaction varies across classes. This infographic turns raw data into clear insights that reflect the voice of Qatar Airways passengers.",
+        "coverImage": "assets/images/palkon.png",
         "previewImage": "assets/images/falconn.png",
         "techTools": [
             { "name": "Python", "icon": "assets/images/logos/py.png" },
@@ -23,6 +26,7 @@
             { "name": "Illustrator", "icon": "assets/images/logos/ai.png" }
         ],
         "techSkills": ["Data Analysis", "Infographic Design", "Data Visualization"],
+        "filterCategories": ["data-related", "competition"],
         "links": [
             { "text": "View Infographic", "url": "https://drive.google.com/file/d/1AzKaX3SmqgyeEtN0VLatPjJ0H25_ltll/view?usp=sharing" }
         ]
@@ -30,11 +34,13 @@
     "project3": {
         "title": "Netflix Simulation Database",
         "description": "In this project, I led a team of three to build a simulated Netflix-style database using phpMyAdmin. I took charge of designing the Entity Relationship Diagram (ERD) and guiding the creation of key tables like Users, Movies, Genres, Subscriptions, and more. Through this project, I learned how to write SQL queries to input, retrieve and combine data from multiple tables, as well as how to manage and explore relational data effectively.",
+        "coverImage": "assets/images/netflix.jpg",
         "previewImage": "assets/images/netflixx.png",
         "techTools": [
             { "name": "phpMyAdmin", "icon": "assets/images/logos/phpmyadmin.png" }
         ],
         "techSkills": ["SQL Queries", "Database Design", "ERD", "Relational Data Management"],
+        "filterCategories": ["data-related"],
         "links": [
             { "text": "View More Detail", "url": "https://docs.google.com/document/d/1RuPpMp3TyFudzz0Bo_HPGTyhwKRuhkvri_DLfIwYkNs/edit?usp=drivesdk" }
         ]
@@ -42,6 +48,7 @@
     "project4": {
         "title": "Fitlog Running App",
         "description": "I developed a mobile-app called FitLog with my two teammates. The app serves as a daily running diary, allowing users to log their running distance, calories burned, and more. In this project, I was responsible for the UI/UX design—starting from creating the user interface layout to implementing it on the frontend using Android Studio and Java.",
+        "coverImage": "assets/images/fitlog.png",
         "previewImage": "assets/images/fitlogg.jpg",
         "techTools": [
             { "name": "Java", "icon": "assets/images/logos/java.png" },
@@ -49,11 +56,13 @@
             { "name": "Figma", "icon": "assets/images/logos/figma.png" }
         ],
         "techSkills": ["Mobile App Development", "UI/UX Design", "Frontend Implementation"],
+        "filterCategories": ["mobile-app"],
         "links": []
     },
     "publication1": {
         "title": "Data Mining Research “Socioeconomic Factors and Education Participation Study”",
         "description": "In this project, I analyzed the factors affecting Angka Partisipasi Sekolah (APS) among Indonesians aged 19–23 using data mining techniques. I built regression and decision tree models using data from BPS to explore variables such as unemployment, poverty levels, GDP per capita, and more. I worked on data preparation and built prediction models with good accuracy (RMSE: 2.16, R²: 0.85). This project taught me how to uncover key insights from socioeconomic data and build predictive models to support education policy planning.",
+        "coverImage": "assets/images/action.png",
         "previewImage": "assets/images/actionn.png",
         "techTools": [
             { "name": "Python", "icon": "assets/images/logos/py.png" },
@@ -62,6 +71,7 @@
             { "name": "Numpy", "icon": "assets/images/logos/numpy.png" }
         ],
         "techSkills": ["Data Mining", "Regression Analysis", "Decision Trees", "Predictive Modeling"],
+        "filterCategories": ["publication", "data-related"],
         "links": [
             { "text": "Read Full-text", "url": "https://www.researchgate.net/publication/388992623_Prediksi_dan_Analisis_Faktor_Keberlanjutan_Studi_Perguruan_Tinggi_dengan_Pendekatan_Machine_Learning#fullTextFileContent" }
         ]
@@ -73,12 +83,14 @@
             "Planned and ran targeted ads to boost brand awareness and meet marketing goals.",
             "Handled end-to-end content production, from video shooting and scripting to editing and post-production, ensuring compelling visual storytelling."
         ],
+        "coverImage": "assets/images/ara5.png",
         "previewImage": "assets/images/araa5.png",
         "techTools": [
             { "name": "Instagram", "icon": "fab fa-instagram" },
             { "name": "TikTok", "icon": "fab fa-tiktok" }
         ],
         "techSkills": ["Digital Marketing", "Content Production", "Video Editing", "Social Media Marketing"],
+        "filterCategories": ["committee"],
         "links": [
             { "text": "ARA 5.0 Website", "url": "https://frontend-ara5.vercel.app/" },
             { "text": "ARA 5.0 Instagram", "url": "https://www.instagram.com/ara_its?igsh=MXEzczQwNmJ0djJwdA==" },
@@ -94,12 +106,14 @@
             "Achieving 600K+ total views and reaching 80K+ accounts.",
             "Planning and managing targeted advertising campaigns to maximize reach and engagement."
         ],
+        "coverImage": "assets/images/ara6.png",
         "previewImage": "assets/images/araa6.png",
         "techTools": [
             { "name": "Instagram", "icon": "fab fa-instagram" },
             { "name": "TikTok", "icon": "fab fa-tiktok" }
         ],
         "techSkills": ["Leadership", "Marketing Strategy", "Content Management", "Social Media Advertising"],
+        "filterCategories": ["committee"],
         "links": [
             { "text": "ARA 6.0 Website", "url": "https://www.ara-its.id/" },
             { "text": "ARA 6.0 Instagram", "url": "https://www.instagram.com/ara_its?igsh=MXEzczQwNmJ0djJwdA==" },
@@ -113,6 +127,7 @@
             "Created 8 Reels and 5 Instagram feed posts, including copywriting and graphic design.",
             "Achieved 150K+ total views, significantly boosting audience engagement and brand awareness."
         ],
+        "coverImage": "assets/images/hmitt.jpg",
         "previewImage": "assets/images/hmit.png",
         "techTools": [
             { "name": "Instagram", "icon": "fab fa-instagram" },
@@ -120,6 +135,7 @@
             { "name": "Figma", "icon": "assets/images/logos/figma.png" }
         ],
         "techSkills": ["Social Media Management", "Content Creation", "Graphic Design", "Copywriting"],
+        "filterCategories": ["committee"],
         "links": [
             { "text": "HMIT ITS Instagram", "url": "https://www.instagram.com/hmit_its?igsh=MWJybHozc3JrNW9qdg==" },
             { "text": "HMIT ITS Tiktok", "url": "https://www.tiktok.com/@hmit_its" }

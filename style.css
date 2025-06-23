@@ -714,17 +714,17 @@ section {
 
 .portfolio-item img {
     width: 100%;
-    height: 200px;
+    height: 200px; /* Tinggi gambar cover */
     object-fit: cover;
     display: block;
 }
 
 .portfolio-item .item-info {
-    padding: 25px;
-    display: flex; /* Untuk menata elemen di dalam item-info */
+    padding: 25px; /* Padding atas dan bawah */
+    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: calc(100% - 220px); /* Total tinggi item - tinggi gambar */
+    justify-content: space-between; /* Ini yang akan mendorong ke bawah */
+    height: calc(100% - 220px); /* Total tinggi item - tinggi gambar. 200px (gambar) + 20px (margin/spacing, jika ada tambahan di luar padding) */
 }
 
 .portfolio-item h3 {

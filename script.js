@@ -29,21 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const item = portfolioData[itemId];
             const div = document.createElement('div');
             div.classList.add('portfolio-item', 'animate-on-scroll');
-            div.setAttribute('data-category', item.techSkills.map(skill => skill.toLowerCase().replace(/\s/g, '-')).join(' ') + ' ' + (item.links.length > 0 ? 'projects' : '')); // Contoh kategori berdasarkan skill atau status link
 
-            // Tambahkan kategori spesifik jika ada
-            if (itemId.includes('project')) {
-                div.setAttribute('data-category', div.getAttribute('data-category') + ' projects');
-            } else if (itemId.includes('publication')) {
-                div.setAttribute('data-category', div.getAttribute('data-category') + ' publications');
-            } else if (itemId.includes('committee')) {
-                div.setAttribute('data-category', div.getAttribute('data-category') + ' committee');
+            // Logika pengkategorian: menggunakan filterCategories (array) dari JSON
+            if (item.filterCategories && Array.isArray(item.filterCategories)) {
+                // Gabungkan kategori dengan spasi untuk atribut data-category
+                div.setAttribute('data-category', item.filterCategories.join(' '));
+            } else {
+                // Fallback jika filterCategories tidak didefinisikan atau bukan array
+                div.setAttribute('data-category', 'all');
             }
-            // Tambahkan kategori berdasarkan konten, Anda mungkin ingin menambahkan data-category langsung di JSON
 
-            // Konten gambar
+            // Konten gambar cover (menggunakan item.coverImage yang baru)
             const img = document.createElement('img');
-            img.src = item.previewImage;
+            img.src = item.coverImage;
             img.alt = item.title;
             img.setAttribute('loading', 'lazy'); // Menambahkan lazy loading
             div.appendChild(img);
@@ -59,16 +57,20 @@ document.addEventListener('DOMContentLoaded', function() {
             const p = document.createElement('p');
             // Menangani deskripsi yang bisa berupa string atau array
             if (Array.isArray(item.description)) {
-                p.textContent = item.description[0] + (item.description.length > 1 ? '...' : ''); // Tampilkan hanya baris pertama untuk short desc
+                // Display only the first line of the description for the short description
+                p.textContent = item.description[0] + (item.description.length > 1 ? '...' : '');
             } else {
-                p.textContent = item.description;
+                // For string descriptions, take the first 100 characters and add '...' if longer
+                const shortDescription = item.description.substring(0, 100);
+                p.textContent = shortDescription + (item.description.length > 100 ? '...' : '');
             }
             p.classList.add('short-desc');
             itemInfoDiv.appendChild(p);
 
             const tagsDiv = document.createElement('div');
-            tagsDiv.classList.add('tags');
-            item.techSkills.forEach(tag => {
+            tagsDiv.classList.add('tags'); // Ensure 'tags' class is added here for the portfolio card
+            // Tampilkan hanya 3 skill pertama di kartu portofolio
+            item.techSkills.slice(0, 3).forEach(tag => { // Menggunakan slice(0, 3)
                 const span = document.createElement('span');
                 span.textContent = tag;
                 tagsDiv.appendChild(span);
@@ -89,8 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
         attachDetailButtonListeners();
 
         // Re-observe new portfolio items for scroll animation
-        animateElements.forEach(element => observer.unobserve(element)); // Hapus observer lama
-        document.querySelectorAll('.portfolio-item').forEach(element => observer.observe(element)); // Tambahkan observer ke item baru
+        observer.disconnect(); // Hapus observer lama
+        document.querySelectorAll('.animate-on-scroll').forEach(element => observer.observe(element)); // Tambahkan observer ke semua elemen yang dianimasikan, termasuk item portofolio baru
     }
 
     // Panggil fungsi pengambilan data saat DOMContentLoaded
@@ -108,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- Fungsi untuk mereset animasi saat navigasi ---
     function resetAllAnimations() {
-        animateElements.forEach(element => {
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
             element.classList.remove('is-visible');
         });
     }
@@ -138,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Set timeout kecil untuk memberi waktu browser untuk scroll dan IntersectionObserver bereaksi
                 setTimeout(() => {
                     // Cek elemen yang sudah ada di viewport dan picu ulang animasinya
-                    animateElements.forEach(element => {
+                    document.querySelectorAll('.animate-on-scroll').forEach(element => {
                         const rect = element.getBoundingClientRect();
                         const viewportHeight = (window.innerHeight || document.documentElement.clientHeight);
                         if (rect.top <= viewportHeight * 0.8 && rect.bottom >= viewportHeight * 0.2) {
@@ -158,32 +160,35 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
             } else {
-                entry.target.classList.remove('is-visible');
+                // Optional: remove is-visible when out of view if you want re-animation on scroll up
+                // entry.target.classList.remove('is-visible');
             }
         });
     }, {
         threshold: 0.2
     });
 
+    // Initial observation
     animateElements.forEach(element => {
         observer.observe(element);
     });
 
+
     // === Portfolio Filtering ===
     const filterButtons = document.querySelectorAll('.filter-btn');
-    // portfolioItems akan diisi setelah data dimuat dan elemen dibuat
 
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
 
-            const filter = this.dataset.filter;
-            const portfolioItems = document.querySelectorAll('.portfolio-item'); // Ambil ulang item setiap kali filter diubah
+            const filter = this.dataset.filter; // Mengambil nilai data-filter dari tombol
+            const portfolioItems = document.querySelectorAll('.portfolio-item'); // Mengambil semua item portofolio
 
             portfolioItems.forEach(item => {
-                const categories = item.dataset.category.split(' ');
-                if (filter === 'all' || categories.includes(filter)) {
+                // Ambil string kategori dari data-category dan pisahkan menjadi array
+                const itemCategories = item.dataset.category.split(' ');
+                if (filter === 'all' || itemCategories.includes(filter)) { // Periksa apakah filter ada dalam array kategori item
                     item.style.display = 'block';
                 } else {
                     item.style.display = 'none';
@@ -204,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fungsi untuk melampirkan event listener ke tombol detail (dipanggil setelah item portofolio dibuat)
     function attachDetailButtonListeners() {
-        const detailButtons = document.querySelectorAll('.btn-detail'); // Ambil ulang tombol setelah inisialisasi portofolio
+        const detailButtons = document.querySelectorAll('.btn-detail');
         detailButtons.forEach(button => {
             button.removeEventListener('click', handleDetailButtonClick); // Hapus listener sebelumnya jika ada
             button.addEventListener('click', handleDetailButtonClick); // Tambahkan listener baru
@@ -216,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const item = portfolioData[itemId]; // Menggunakan portfolioData yang telah dimuat
 
         if (item) {
-            // Tampilkan Gambar Pratinjau
+            // Tampilkan Gambar Pratinjau (menggunakan item.previewImage)
             if (item.previewImage) {
                 modalImage.src = item.previewImage;
                 modalImage.style.display = 'block';
@@ -228,6 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
             modalTitle.textContent = item.title;
 
             // Modifikasi ini untuk menangani deskripsi array atau string
+            modalDesc.innerHTML = ''; // Clear previous content
             if (Array.isArray(item.description)) {
                 const ul = document.createElement('ul');
                 ul.style.listStyle = 'disc';
@@ -237,10 +243,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     li.textContent = point;
                     ul.appendChild(li);
                 });
-                modalDesc.innerHTML = '';
                 modalDesc.appendChild(ul);
             } else {
-                modalDesc.textContent = item.description.replace(/\\n/g, '\n');
+                // Replace \n with <br> for multiline string descriptions
+                modalDesc.innerHTML = item.description.replace(/\n/g, '<br>');
             }
 
             // Tampilkan Logo Tools
@@ -270,15 +276,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 modalTechLogos.innerHTML = '<p style="font-size:0.9em; color: gray;">Tidak ada logo tools spesifik.</p>';
             }
 
-            // Tampilkan Skill Required (tags)
+            // Tampilkan Skill Required (tags) - Corrected this part
             modalTechTags.innerHTML = '';
             if (item.techSkills && item.techSkills.length > 0) {
+                // Add the 'tags' class to the modalTechTags container itself
+                modalTechTags.classList.add('tags'); // Add this line
                 item.techSkills.forEach(skill => {
                     const span = document.createElement('span');
                     span.textContent = skill;
                     modalTechTags.appendChild(span);
                 });
             } else {
+                // Ensure to remove the 'tags' class if there are no skills to prevent styling issues
+                modalTechTags.classList.remove('tags'); // Add this line
                 modalTechTags.innerHTML = '<p style="font-size:0.9em; color: gray;">Tidak ada skill yang tercantum.</p>';
             }
 
@@ -312,21 +322,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // === Dark Mode Toggle Logic ===
     const darkModeToggle = document.getElementById('darkModeToggle');
-    const darkModeIcon = document.getElementById('darkModeIcon'); // Ambil elemen gambar ikon
+    const darkModeIcon = document.getElementById('darkModeIcon');
     const body = document.body;
 
     // Function to set the theme
     function setTheme(isDark) {
         if (isDark) {
             body.classList.add('dark-mode');
-            darkModeIcon.src = 'assets/images/mode/darkk.png'; // Ganti ke ikon dark mode
-            darkModeIcon.alt = 'Dark Mode Icon'; // Update alt text
+            darkModeIcon.src = 'assets/images/mode/darkk.png'; // Corrected path for dark mode icon
+            darkModeIcon.alt = 'Dark Mode Icon';
             darkModeToggle.classList.add('active');
             localStorage.setItem('theme', 'dark');
         } else {
             body.classList.remove('dark-mode');
-            darkModeIcon.src = 'assets/images/mode/light.png'; // Ganti ke ikon light mode
-            darkModeIcon.alt = 'Light Mode Icon'; // Update alt text
+            darkModeIcon.src = 'assets/images/mode/light.png'; // Corrected path for light mode icon
+            darkModeIcon.alt = 'Light Mode Icon';
             darkModeToggle.classList.remove('active');
             localStorage.setItem('theme', 'light');
         }
@@ -358,19 +368,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const emailInput = contactForm.querySelector('input[type="email"]');
             const messageTextarea = contactForm.querySelector('textarea');
 
-            // Ini adalah validasi sisi klien. Untuk pengiriman email sungguhan, Anda memerlukan backend.
+            // This is client-side validation. For actual email submission, you'll need a backend.
             if (!nameInput.value || !emailInput.value || !messageTextarea.value) {
-                event.preventDefault(); // Mencegah pengiriman formulir
+                event.preventDefault(); // Prevent form submission
                 contactForm.classList.add('shake');
                 contactForm.addEventListener('animationend', () => {
                     contactForm.classList.remove('shake');
                 }, { once: true });
                 alert('Mohon lengkapi semua kolom formulir!');
             } else {
-                // Untuk demo ini, kita akan mencegah submit ke backend
-                event.preventDefault();
+                // For this demo, we'll simulate success and prevent actual submission
+                event.preventDefault(); // Prevent actual form submission to a backend
                 alert('Pesan berhasil dikirim (simulasi)! Untuk fungsionalitas pengiriman email sungguhan, diperlukan implementasi backend.');
-                contactForm.reset(); // Reset formulir setelah simulasi kirim
+                contactForm.reset(); // Reset the form after simulated submission
             }
         });
     }
