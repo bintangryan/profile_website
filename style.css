@@ -38,9 +38,9 @@
 body.dark-mode {
     --text-color: #f0f0f0; /* Light gray for text in dark mode */
     --background-color: #1A1A1A; /* Dark background */
-    --primary-color: #64B5F6 ; /* Lighter blue for primary accents in dark mode */
+    --primary-color: #47acff ; /* Lighter blue for primary accents in dark mode */
     --secondary-color: #333333; /* Darker gray for secondary accents/backgrounds in dark mode */
-    --accent-color: #2196F3; /* Slightly brighter blue for accent in dark mode */
+    --accent-color: #aad9ff; /* Slightly brighter blue for accent in dark mode */
     --footer-background-color: var(--text-color); /* Footer background is main background in dark mode */
     --navbar-background-color: var(--text-color); /* Navbar background is secondary in dark mode */
     --navbar-link-color: #1A1A1A; /* Navbar links are light text in dark mode */
@@ -59,7 +59,7 @@ body.dark-mode {
     --filter-button-color: #f0f0f0;
     --filter-button-hover-background: var(--primary-color);
     --filter-button-hover-color: var(--background-color);
-    --filter-button-active-background: var(--primary-color);
+    --filter-button-active-background: var(--accent-color);
     --filter-button-active-color: var(--background-color);
     --contact-input-border: #444444;
     --contact-input-background: #2A2A2A;
@@ -670,7 +670,8 @@ section {
 .filter-btn {
     background-color: var(--filter-button-background);
     color: var(--filter-button-color);
-    border: none;
+    border: 2px solid transparent; /* Penting: Tambahkan border transparan di keadaan normal */
+    transition: all 0.3s ease;    
     padding: 10px 25px;
     border-radius: 30px;
     font-weight: 600;
@@ -680,15 +681,16 @@ section {
 }
 
 .filter-btn:hover {
-    background-color: var(--filter-button-hover-background);
-    color: var(--filter-button-hover-color);
-    transform: scale(1.1);
-
+    background-color: var(--background-color); /* Membuat latar belakang transparan saat hover */
+    color: var(--text-color); /* Mengubah warna teks menjadi primary-color */
+    border-color: var(--accent-color); /* Mengubah warna border menjadi primary-color */
+    transform: scale(1.1); /* Efek scale yang sudah ada tetap dipertahankan */
 }
 
 .filter-btn.active {
     background-color: var(--filter-button-active-background);
     color: var(--filter-button-active-color);
+    transform: scale(1.1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -1040,6 +1042,9 @@ section {
     gap: 5px;
 }
 
+.modal-links a:hover{
+    color: var(--accent-color);
+}
 
 
 /* --- Responsif (Media Queries) --- */
