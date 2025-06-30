@@ -1,7 +1,7 @@
 {
     "project1": {
         "title": "Ketika Bumi Bercerita Infographic",
-        "description": "I collaborated with my team on a national-level data visualization competition, Hi-Tech competition organized by Politeknik Caltex Riau, where we proudly secured 2nd place. Our project aimed to raise public awareness about climate change by transforming complex environmental data into compelling, easy-to-understand visual narratives. I led the data analysis using Power BI to uncover key insights and translated those findings into impactful infographics using Canva. This project was a blend of analytical thinking and creative communication, designed to drive climate action through accessible and engaging data visualization.",
+        "description": "I collaborated with my team on a national-level data visualization competition, HI-TECH 7 competition organized by Politeknik Caltex Riau, where we proudly secured 2nd place. This project aimed to raise public awareness about climate change by transforming complex environmental data into compelling, easy-to-understand visual narratives. I led the data analysis using Power BI to uncover key insights and translated those findings into impactful infographics using Canva. This project was a blend of analytical thinking and creative communication, designed to drive climate action through accessible and engaging data visualization.",
         "coverImage": "assets/images/bumi.png",
         "previewImage": "assets/images/hitechh.jpg",
         "techTools": [
@@ -11,7 +11,8 @@
         "techSkills": ["Data Analysis", "Data Visualization", "Graphic Design"],
         "filterCategories": ["data-related", "competition"],
         "links": [
-            { "text": "View Infographic", "url": "https://drive.google.com/file/d/1c9LIsymfflAvifYbt-N6ohB8dTIYi8vq/view?usp=sharing" }
+            { "text": "View Infographic", "url": "https://drive.google.com/file/d/1c9LIsymfflAvifYbt-N6ohB8dTIYi8vq/view?usp=sharing" },
+            { "text": "View Certificate", "url": "https://drive.google.com/file/d/1MiJNPpfzVxPLWe_S07U8SAeYkoeKiY35/view?usp=sharing" }
         ]
     },
     "project2": {
@@ -42,7 +43,7 @@
         "techSkills": ["SQL Queries", "Database Design", "ERD", "Relational Data Management"],
         "filterCategories": ["data-related"],
         "links": [
-            { "text": "View More Detail", "url": "https://docs.google.com/document/d/1RuPpMp3TyFudzz0Bo_HPGTyhwKRuhkvri_DLfIwYkNs/edit?usp=drivesdk" }
+            { "text": "View Project", "url": "https://docs.google.com/document/d/1RuPpMp3TyFudzz0Bo_HPGTyhwKRuhkvri_DLfIwYkNs/edit?usp=drivesdk" }
         ]
     },
     "project4": {
@@ -57,7 +58,9 @@
         ],
         "techSkills": ["Mobile App Development", "UI/UX Design", "Frontend Implementation"],
         "filterCategories": ["mobile-app"],
-        "links": []
+        "links": [
+            { "text": "View Project", "url": "https://drive.google.com/file/d/1xYPb5XdFrSfs_0Oh0MP_-3Q6w8Tg6Y7E/view?usp=sharing" }
+        ]
     },
     "publication1": {
         "title": "Data Mining Research “Socioeconomic Factors and Education Participation Study”",

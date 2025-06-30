@@ -379,7 +379,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 // For this demo, we'll simulate success and prevent actual submission
                 event.preventDefault(); // Prevent actual form submission to a backend
-                alert('Pesan berhasil dikirim (simulasi)! Untuk fungsionalitas pengiriman email sungguhan, diperlukan implementasi backend.');
+                alert('Fitur belum tersedia');
                 contactForm.reset(); // Reset the form after simulated submission
             }
         });

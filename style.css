@@ -84,7 +84,7 @@ body {
     background-color: var(--background-color);
     line-height: 1.6;
     scroll-behavior: smooth;
-    transition: background-color 0.8s ease, color 0.8s ease; /* Smooth transition for color changes */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for color changes */
 }
 
 .container {
@@ -123,7 +123,7 @@ p {
 a {
     color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.5s ease;
+    transition: color 0.4s ease;
 }
 
 a:hover {
@@ -141,7 +141,7 @@ a:hover {
     border-radius: 50px;
     font-weight: 600;
     font-size: 1.1em;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
     text-align: center;
     cursor: pointer;
 }
@@ -179,7 +179,7 @@ a:hover {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     z-index: 1000;
     padding: 10px 0;
-    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar-content {
@@ -353,7 +353,7 @@ a:hover {
 .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .fade-in {
@@ -362,7 +362,7 @@ a:hover {
 
 .fade-in.is-visible {
     opacity: 1;
-    transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .slide-in-left {
@@ -373,7 +373,7 @@ a:hover {
 .slide-in-left.is-visible {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .slide-in-right {
@@ -384,7 +384,7 @@ a:hover {
 .slide-in-right.is-visible {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Delay untuk elemen yang muncul secara berurutan */
@@ -676,7 +676,7 @@ section {
     border-radius: 30px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.8s ease;
+    transition: all 0.4s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
@@ -684,7 +684,6 @@ section {
     background-color: var(--background-color); /* Membuat latar belakang transparan saat hover */
     color: var(--text-color); /* Mengubah warna teks menjadi primary-color */
     border-color: var(--accent-color); /* Mengubah warna border menjadi primary-color */
-    transform: scale(1.1); /* Efek scale yang sudah ada tetap dipertahankan */
 }
 
 .filter-btn.active {
@@ -966,6 +965,7 @@ section {
 .modal-content p {
     margin-bottom: 25px;
     font-size: 1.05em;
+    text-align: justify;
     line-height: 1.7;
 }
 
