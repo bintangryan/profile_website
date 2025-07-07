@@ -1,4 +1,21 @@
 {
+    "project01": {
+        "title": "Real-Time Big Data System for Bank Deposit",
+        "description": "In a team of three, I took the lead in developing a big data system that used Apache Kafka for real-time data streaming and built a predictive model to determine the likelihood of bank customers opening a deposit account. My role involved designing the entire data pipeline, integrating Kafka for data streaming, preprocessing the data, and building the predictive model using machine learning techniques. The solution was implemented as a web application, allowing users to input customer data directly and instantly receive a prediction on whether the customer was likely to open a deposit account.",
+        "coverImage": "assets/images/bigdata.png",
+        "previewImage": "assets/images/bigdataa.png",
+        "techTools": [
+            { "name": "Scikit-learn", "icon": "assets/images/logos/sckitlearn.png" },
+            { "name": "Python", "icon": "assets/images/logos/py.png" },
+            { "name": "Minio", "icon": "assets/images/logos/minio.png" },
+            { "name": "Kafka", "icon": "assets/images/logos/kafka.png" }
+        ],
+        "techSkills": ["Big Data", "Data Analysis", "Machine Learning", "Data Streaminig", "Predictive Modelling"],
+        "filterCategories": ["data-related"],
+        "links": [
+            { "text": "More on Github", "url": "https://github.com/stephaniehebrina/FP_bigdata" }
+        ]
+    },
     "project1": {
         "title": "Ketika Bumi Bercerita Infographic",
         "description": "I collaborated with my team on a national-level data visualization competition, HI-TECH 7 competition organized by Politeknik Caltex Riau, where we proudly secured 2nd place. This project aimed to raise public awareness about climate change by transforming complex environmental data into compelling, easy-to-understand visual narratives. I led the data analysis using Power BI to uncover key insights and translated those findings into impactful infographics using Canva. This project was a blend of analytical thinking and creative communication, designed to drive climate action through accessible and engaging data visualization.",
