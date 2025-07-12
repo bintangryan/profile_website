@@ -10,7 +10,7 @@
             { "name": "Minio", "icon": "assets/images/logos/minio.png" },
             { "name": "Kafka", "icon": "assets/images/logos/kafka.png" }
         ],
-        "techSkills": ["Big Data", "Data Analysis", "Machine Learning", "Data Streaminig", "Predictive Modelling"],
+        "techSkills": ["Big Data", "Data Analysis", "Machine Learning", "Data Streaminig", "Predictive Modelling", "Data Visualization"],
         "filterCategories": ["data-related"],
         "links": [
             { "text": "More on Github", "url": "https://github.com/stephaniehebrina/FP_bigdata" }
@@ -97,7 +97,7 @@
         ]
     },
     "publication1": {
-        "title": "Data Mining Research “Socioeconomic Factors and Education Participation Study”",
+        "title": "Predictive Modeling of School Participation (APS) for Ages 19–23 in Indonesia",
         "description": "In this project, I analyzed the factors affecting Angka Partisipasi Sekolah (APS) among Indonesians aged 19–23 using data mining techniques. I built regression and decision tree models using data from BPS to explore variables such as unemployment, poverty levels, GDP per capita, and more. I worked on data preparation and built prediction models with good accuracy (RMSE: 2.16, R²: 0.85). This project taught me how to uncover key insights from socioeconomic data and build predictive models to support education policy planning.",
         "coverImage": "assets/images/action.png",
         "previewImage": "assets/images/actionn.png",

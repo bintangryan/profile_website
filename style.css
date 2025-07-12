@@ -38,9 +38,9 @@
 body.dark-mode {
     --text-color: #f0f0f0; /* Light gray for text in dark mode */
     --background-color: #131313; /* Dark background */
-    --primary-color: #4ca6ff ; /* Lighter blue for primary accents in dark mode */
+    --primary-color: #4cbaff ; /* Lighter blue for primary accents in dark mode */
     --secondary-color: #2c2c2c; /* Darker gray for secondary accents/backgrounds in dark mode */
-    --accent-color: #4ca6ff; /* Slightly brighter blue for accent in dark mode */
+    --accent-color: #4cbaff; /* Slightly brighter blue for accent in dark mode */
     --footer-background-color: var(--text-color); /* Footer background is main background in dark mode */
     --navbar-background-color: var(--text-color); /* Navbar background is secondary in dark mode */
     --navbar-link-color: #1A1A1A; /* Navbar links are light text in dark mode */
@@ -729,7 +729,7 @@ section {
 }
 
 .portfolio-item h3 {
-    font-size: 1.6em;
+    font-size: 1.4em;
     margin-bottom: 10px;
 }
 

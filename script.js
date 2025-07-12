@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const tagsDiv = document.createElement('div');
             tagsDiv.classList.add('tags'); // Ensure 'tags' class is added here for the portfolio card
             // Tampilkan hanya 3 skill pertama di kartu portofolio
-            item.techSkills.slice(0, 3).forEach(tag => { // Menggunakan slice(0, 3)
+            item.techSkills.slice(0, 2).forEach(tag => { // Menggunakan slice(0, 3)
                 const span = document.createElement('span');
                 span.textContent = tag;
                 tagsDiv.appendChild(span);
