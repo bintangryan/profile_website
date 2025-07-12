@@ -38,9 +38,9 @@
 body.dark-mode {
     --text-color: #f0f0f0; /* Light gray for text in dark mode */
     --background-color: #1A1A1A; /* Dark background */
-    --primary-color: #47acff ; /* Lighter blue for primary accents in dark mode */
+    --primary-color: #66b5f6 ; /* Lighter blue for primary accents in dark mode */
     --secondary-color: #333333; /* Darker gray for secondary accents/backgrounds in dark mode */
-    --accent-color: #aad9ff; /* Slightly brighter blue for accent in dark mode */
+    --accent-color: #66b5f6; /* Slightly brighter blue for accent in dark mode */
     --footer-background-color: var(--text-color); /* Footer background is main background in dark mode */
     --navbar-background-color: var(--text-color); /* Navbar background is secondary in dark mode */
     --navbar-link-color: #1A1A1A; /* Navbar links are light text in dark mode */
@@ -155,7 +155,7 @@ a:hover {
 .btn-primary:hover {
     background-color: transparent;
     color: var(--primary-color);
-    transform: scale(1.15);
+    transform: translateY(-5px) scale(1.1);
 }
 
 .btn-secondary {
@@ -166,7 +166,7 @@ a:hover {
 .btn-secondary:hover {
     background-color: var(--secondary-color);
     color: var(--primary-color);
-    transform: scale(1.15);
+    transform: translateY(-5px) scale(1.1);
 }
 
 /* --- Navbar --- */
@@ -756,6 +756,8 @@ section {
     border-radius: 20px;
 }
 
+/* Dalam berkas Profile Website/style.css */
+
 .portfolio-item .btn-detail {
     background-color: var(--primary-color);
     color: var(--background-color);
@@ -764,13 +766,15 @@ section {
     border-radius: 12px;
     font-size: 0.95em;
     font-weight: 600;
-    transition: background-color 0.5s ease;
+    /* Tambahkan 'transform' ke properti transisi */
+    transition: background-color 0.5s ease, transform 0.3s ease;
     align-self: flex-start; /* Mengatur posisi tombol */
 }
 
 .portfolio-item .btn-detail:hover {
     background-color: var(--text-color);
-
+    /* Tambahkan transformasi untuk efek bergerak dan membesar */
+    transform: translateY(-5px) scale(1.05);
 }
 
 /* --- Contact Section --- */
@@ -1033,6 +1037,7 @@ section {
     margin-top: 20px;
 }
 
+/* Tambahkan properti transisi ke modal-links a */
 .modal-links a {
     font-size: 1em;
     font-weight: 600;
@@ -1040,10 +1045,12 @@ section {
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Transisi untuk warna dan transform */
 }
 
-.modal-links a:hover{
+.modal-links a:hover {
     color: var(--accent-color);
+    transform: translateY(-5px) scale(1.05); /* Bergerak ke atas dan membesar */
 }
 
 
