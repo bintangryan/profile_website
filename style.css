@@ -37,10 +37,10 @@
 
 body.dark-mode {
     --text-color: #f0f0f0; /* Light gray for text in dark mode */
-    --background-color: #1A1A1A; /* Dark background */
-    --primary-color: #188bff ; /* Lighter blue for primary accents in dark mode */
-    --secondary-color: #333333; /* Darker gray for secondary accents/backgrounds in dark mode */
-    --accent-color: #188bff; /* Slightly brighter blue for accent in dark mode */
+    --background-color: #131313; /* Dark background */
+    --primary-color: #65b2ff ; /* Lighter blue for primary accents in dark mode */
+    --secondary-color: #2c2c2c; /* Darker gray for secondary accents/backgrounds in dark mode */
+    --accent-color: #65b2ff; /* Slightly brighter blue for accent in dark mode */
     --footer-background-color: var(--text-color); /* Footer background is main background in dark mode */
     --navbar-background-color: var(--text-color); /* Navbar background is secondary in dark mode */
     --navbar-link-color: #1A1A1A; /* Navbar links are light text in dark mode */
@@ -48,7 +48,7 @@ body.dark-mode {
     --mobile-menu-button-color:  #1A1A1A; /* Dark background */
     --mobile-nav-background: var(--secondary-color); /* Mobile nav background */
     --mobile-nav-link-color: #f0f0f0; /* Mobile nav link color */
-    --modal-background: #2A2A2A; /* Modal background */
+    --modal-background: #181818; /* Modal background */
     --modal-close-button-color: #f0f0f0; /* Modal close button color */
     --modal-h3-color: var(--primary-color); /* Modal h3 color */
     --modal-h4-color: #f0f0f0; /* Modal h4 color */
