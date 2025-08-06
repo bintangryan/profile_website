@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Bintang Ryan - IT Student | Data Science & Digital Marketing</title> <meta name="description" content="Portofolio proyek dan publikasi Bintang Ryan di bidang Data Science, Digital Marketing, UI/UX, dan Machine Learning."> <meta name="keywords" content="Bintang Ryan, Portofolio, IT Student, Data Science, Digital Marketing, ITS Surabaya, Machine Learning, UI/UX Design, Python, Power BI, SQL"> <meta name="author" content="Bintang Ryan">
+    <meta property="og:title" content="Portofolio Bintang Ryan - IT Student | Data Science & Digital Marketing">
+    <meta property="og:description" content="Portofolio proyek dan publikasi Bintang Ryan di bidang Data Science, Digital Marketing, UI/UX, dan Machine Learning.">
+    <meta property="og:image" content="https://yourwebsite.com/assets/images/profilee.png"> <meta property="og:url" content="https://yourwebsite.com/portfolio.html"> <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="logo"> Bintang Ryan
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li> <li><a href="index.html#about">About</a></li> <li><a href="#portfolio">Portfolio</a></li> <li><a href="index.html#contact">Contact</a></li> </ul>
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                <img id="darkModeIcon" src="assets/images/mode/lightmode.png" alt="Light Mode Icon" class="dark-mode-icon">
+            </button>
+            <button class="mobile-menu-button" aria-label="Toggle navigation">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="portfolio" class="portfolio-section">
+            <div class="container">
+                <div class="portfolio-main-content">
+                    <div class="filter-buttons animate-on-scroll fade-in animate-delay-1">
+                        <div class="filter-intro">
+                            <h3>Categories</h3>
+                            <p>Select a category to view relevant projects</p>
+                        </div>
+                        <a href="#" class="filter-btn active" data-filter="all">All Portfolio</a>
+                        <a href="#" class="filter-btn" data-filter="data-related">Data-Related</a>
+                        <a href="#" class="filter-btn" data-filter="mobile-app">Mobile App</a>
+                        <a href="#" class="filter-btn" data-filter="publication">Publications</a>
+                        <a href="#" class="filter-btn" data-filter="competition">Competitions</a>
+                        <a href="#" class="filter-btn" data-filter="committee">Event Committee</a>
+                    </div>
+
+                    <div class="portfolio-grid-wrapper">
+                        <div id="portfolio-items-container" class="portfolio-grid">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="portfolio-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img id="modal-image" class="modal-preview-image" src="" alt="Project Preview" loading="lazy"> <h3 id="modal-title"></h3>
+            <p id="modal-desc"></p>
+            <div class="modal-links"></div>
+            <br>
+            <br>
+            <div class="modal-details-grid">
+                <div>
+                    <h4 class="modal-section-title">Technologies Used</h4>
+                    <div id="modal-tech-logos" class="tech-logos"></div>
+                </div>
+                <div>
+                    <h4 class="modal-section-title">Skills</h4>
+                    <div id="modal-tech-tags" class="tags"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
