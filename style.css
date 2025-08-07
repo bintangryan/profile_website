@@ -5,7 +5,7 @@
     --background-color: #ffffff; /* White for background in light mode */
     --primary-color: #1c68c5; /* Blue for primary accents */
     --secondary-color: #CBDCEB; /* Light blue-gray for secondary accents/backgrounds */
-    --accent-color: #133E87; /* Darker blue for accent */
+    --accent-color: #1c68c5; /* Darker blue for accent */
     --footer-background-color: var(--text-color); /* Footer background is text color in light mode */
     --navbar-background-color: rgba(0, 0, 0, 0.85); /* Latar belakang semi-transparan untuk light mode */
     --navbar-link-color: var(--background-color); /* Warna link diubah agar kontras */
@@ -22,7 +22,7 @@
     --portfolio-item-hover-transform: translateY(-20px);
     --filter-button-background: var(--background-color);
     --filter-button-color: var(--text-color);
-    --filter-button-hover-background: var(--accent-color);
+    --filter-button-hover-background: var(--primary-color);
     --filter-button-hover-color: var(--background-color);
     --filter-button-active-background: var(--accent-color);
     --filter-button-active-color: var(--background-color);
@@ -147,26 +147,39 @@ a:hover {
     cursor: pointer;
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--background-color);
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
     border: 2px solid var(--primary-color);
 }
 
+.btn-secondary:hover {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border: 2px solid var(--text-color);
+    transform: translateY(-5px) scale(1.1);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
 .btn-primary:hover {
-    background-color: transparent;
+    background-color: var(--secondary-color);
     color: var(--primary-color);
     transform: translateY(-5px) scale(1.1);
 }
 
-.btn-secondary {
+.btn-send {
     background-color: var(--text-color);
-    color: var(--secondary-color);
+    border: 0px;
+    color: var(--background-color);
 }
 
-.btn-secondary:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+.btn-send:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
     transform: translateY(-5px) scale(1.1);
 }
 
@@ -177,8 +190,10 @@ a:hover {
 .navbar .nav-links { list-style: none; display: flex; }
 .navbar .nav-links li { margin-left: 60px; }
 .navbar .nav-links a { font-size: 1em; font-weight: 600; color: var(--navbar-link-color); transition: color 0.5s ease; position: relative; padding-bottom: 5px; overflow: hidden; }
-.navbar .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--primary-color); transition: width 0.5s ease-out; }
-.navbar .nav-links a:hover::after { width: 100%; }
+.navbar .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--background-color); transition: width 0.5s ease-out; }
+.navbar .nav-links a:hover::after,
+.navbar .nav-links a.active::after {width: 100%;}
+
 
 
 /* Mobile Menu Button (Hamburger) */
@@ -305,7 +320,24 @@ a:hover {
     transform: translateY(0);
     transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
+/* ===== KODE CSS BARU UNTUK ANIMASI SECTION ===== */
 
+/* Mendefinisikan keyframes untuk animasi */
+@keyframes sectionAnimate {
+  from {
+    opacity: 0.7;
+    transform: scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Class yang akan kita panggil dari JavaScript untuk menjalankan animasi */
+.animate-section {
+  animation: sectionAnimate 0.7s ease-out;
+}
 .fade-in {
     opacity: 0;
 }
@@ -351,21 +383,38 @@ a:hover {
 
 
 /* Animasi Denyutan Warna untuk nama "Bintang Ryan" */
-#animated-name {
-    display: inline-block; /* Penting agar transisi warna berfungsi pada inline element */
-    animation: colorPulse 3s infinite alternate; /* Durasi 3 detik, berulang tak terbatas, bolak-balik */
+#animated-name span {
+    display: inline-block;
+    animation: colorPulse 2s infinite alternate;
 }
 
-/* Mendefinisikan keyframes untuk animasi denyutan warna */
+#animated-name span:nth-child(1) { animation-delay: 0.1s; }
+#animated-name span:nth-child(2) { animation-delay: 0.2s; }
+#animated-name span:nth-child(3) { animation-delay: 0.3s; }
+#animated-name span:nth-child(4) { animation-delay: 0.4s; }
+#animated-name span:nth-child(5) { animation-delay: 0.5s; }
+#animated-name span:nth-child(6) { animation-delay: 0.6s; }
+#animated-name span:nth-child(7) { animation-delay: 0.7s; }
+#animated-name span:nth-child(8) { animation-delay: 0.8s; }
+#animated-name span:nth-child(9) { animation-delay: 0.9s; }
+#animated-name span:nth-child(10) { animation-delay: 1s; }
+#animated-name span:nth-child(11) { animation-delay: 1.1s; }
+#animated-name span:nth-child(12) { animation-delay: 1.2s; }
+#animated-name span:nth-child(13) { animation-delay: 1.3s; }
+#animated-name span:nth-child(14) { animation-delay: 1.4s; }
+
 @keyframes colorPulse {
     0% {
-        color: var(--primary-color); /* Warna awal */
+        color: var(--primary-color);
+        transform: scale(1);
     }
     50% {
-        color: var(--text-color); /* Warna di tengah animasi (lebih gelap atau berbeda) */
+        color: var(--text-color);
+        transform: scale(1);
     }
     100% {
-        color: var(--primary-color); /* Kembali ke warna awal */
+        color: var(--primary-color);
+        transform: scale(1);
     }
 }
 
@@ -444,16 +493,6 @@ section {
     padding: 80px 0;
 }
 
-#about.about-section {
-    background-color: var(--background-color);
-    padding: 100px 0;
-    transition: background-color 0.8s ease;
-}
-
-#about.about-section h2 {
-    margin-bottom: 16px; /* Mungkin perlu disesuaikan dari 40px sebelumnya */
-}
-
 #contact.contact-section {
     background-color: var(--background-color);
     transition: background-color 0.8s ease;
@@ -463,9 +502,13 @@ section {
 /* --- About Section (Revisi untuk Tampilan Lebih Bersih) --- */
 /* --- About Section (Revisi Final Sesuai Permintaan) --- */
 #about.about-section {
-    background-color: var(--background-color);
-    padding: 100px 0;
+    background-color: var(--secondary-color);
+    padding: 40px 0;
     transition: background-color 0.8s ease;
+}
+
+#about.about-section h2 {
+    margin-bottom: 16px; /* Mungkin perlu disesuaikan dari 40px sebelumnya */
 }
 
 .about-content {
@@ -482,6 +525,7 @@ section {
     gap: 60px;
     align-items: start; /* Mengubah dari 'center' ke 'start' agar title sejajar di atas */
 }
+
 
 /* Style untuk semua title di section about */
 .profile-label, .interest-label, .tech-stack-label {
@@ -632,6 +676,7 @@ section {
     gap: 0;
 }
 
+
 /* Bagian ini sudah benar, akan menempel pada posisi yang tepat karena parent-nya sudah diberi padding */
 .filter-buttons {
     position: sticky;
@@ -695,7 +740,7 @@ body.dark-mode .filter-intro { border-bottom-color: #333; }
 .portfolio-item:hover { transform: var(--portfolio-item-hover-transform); box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1); }
 .portfolio-item img {
     width: 100%;
-    height: 160px; /* Menjaga tinggi wadah gambar tetap sama */
+    height: 140px; /* Menjaga tinggi wadah gambar tetap sama */
     object-fit: contain; /* KUNCI: Membuat seluruh gambar muat tanpa terpotong */
     display: block;
     background-color: #e8edec; /* Latar belakang untuk sisa ruang (mode terang) */
@@ -737,13 +782,15 @@ body.dark-mode .portfolio-item .tags span { background-color: #333; }
     margin: 0 auto;
 }
 
-.contact-text h2, .contact-text p {
+.contact-text h2{
     text-align: left;
+    color: var(--primary-color);
 }
 
 .contact-text p {
     font-size: 1em;
     max-width: 400px;
+    text-align: left;
 }
 
 .contact-form {

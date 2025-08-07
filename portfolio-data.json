@@ -33,7 +33,7 @@
         ]
     },
     "project2": {
-        "title": "Exploratory Data Analysis of Regional Transfer Fund Effectiveness",
+        "title": "EDA of Regional Transfer Fund Effectiveness",
         "description": "This project is a comparative study of the ceiling and realization of Regional Transfer Funds (TKDD) in Indonesian provinces in 2023. Data analysis was conducted through several key stages:\n\n1. Data Preparation: Loading datasets and performing initial understanding of data structure, as well as generating descriptive statistics.\n2.  Data Cleaning: Identifying and handling missing values and data duplication, including imputation using the median based on geographical proximity.\n3.  Initial Data Visualization: Creating visualizations such as histograms and boxplots to understand data distribution, detect skewness, and outliers.\n4.  Exploratory Data Analysis (EDA): Performing comparisons between TKDD ceilings and realizations, classifying realization percentages, identifying provinces with the highest and lowest realizations, and analyzing factors influencing TKDD realization and the Human Development Index (HDI). This also includes analyzing the relationship between TKDD realization and HDI.\n5.  Recommendation Formulation: Presenting key insights from the analysis and providing policy recommendations to improve the effectiveness of budget allocation and implementation.\n\nThe main goal of this analysis is to provide in-depth understanding of fund distribution effectiveness and a basis for policy recommendations.",
         "coverImage": "assets/images/techfest.png",
         "previewImage": "assets/images/techfestt.png",

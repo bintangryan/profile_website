@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // --- Global Variables & Element Selections ---
-    let portfolioData = {}; // Global variable to store portfolio data.
+    // --- Variabel Global ---
+    const allNavLinks = document.querySelectorAll('.nav-links a, .mobile-nav-links a');
+    let portfolioData = {};
     const portfolioItemsContainer = document.getElementById('portfolio-items-container');
     const filterButtons = document.querySelectorAll('.filter-btn');
     const modal = document.getElementById('portfolio-modal');
@@ -13,15 +14,87 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalImage = document.getElementById('modal-image');
     const mobileMenuButton = document.querySelector('.mobile-menu-button');
     const mobileNavLinks = document.querySelector('.mobile-nav-links');
-    const navLinks = document.querySelectorAll('.navbar a');
     const darkModeToggle = document.getElementById('darkModeToggle');
     const darkModeIcon = document.getElementById('darkModeIcon');
     const body = document.body;
     const contactForm = document.getElementById('contactForm');
     const allAnimatedElements = document.querySelectorAll('.animate-on-scroll');
-    const techIconsGrid = document.querySelector('.tech-icons-grid'); // Tambahkan selector untuk grid ikon
+    const techIconsGrid = document.querySelector('.tech-icons-grid');
 
-    // --- Data Fetching ---
+    // --- LOGIKA NAVIGASI FINAL ---
+
+    function applyActiveClass() {
+        const currentPath = window.location.pathname;
+
+        // Logika untuk Halaman Portfolio
+        if (currentPath.includes('portfolio.html')) {
+            allNavLinks.forEach(link => {
+                // Di halaman ini, link portofolio adalah href="#portfolio".
+                const isPortfolioLink = link.getAttribute('href') === '#portfolio';
+                link.classList.toggle('active', isPortfolioLink);
+            });
+            return; // Selesai, jangan jalankan kode di bawah
+        }
+        
+        // Logika untuk Halaman Index (default)
+        const sections = document.querySelectorAll('main section[id]');
+        if (sections.length > 0) {
+            const observer = new IntersectionObserver((entries) => {
+                let activeSectionFound = false;
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = `#${entry.target.id}`;
+                        allNavLinks.forEach(link => {
+                            // Mencocokkan link yang href-nya mengandung id section
+                             if (link.getAttribute('href').endsWith(sectionId)) {
+                                link.classList.add('active');
+                                activeSectionFound = true;
+                            } else {
+                                link.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+                // Fallback jika tidak ada section yang aktif (misal di paling bawah)
+                 if (!activeSectionFound) {
+                    allNavLinks.forEach(l => l.classList.remove('active'));
+                 }
+            }, {
+                rootMargin: '-40% 0px -60% 0px'
+            });
+            sections.forEach(section => observer.observe(section));
+        }
+    }
+
+    // Panggil fungsi saat halaman dimuat
+    applyActiveClass();
+
+    // Event listener untuk klik navigasi (MEMPERBAIKI NAVIGASI)
+    allNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const linkUrl = new URL(link.href);
+            const currentUrl = new URL(window.location.href);
+
+            // Jika mengklik tautan di halaman yang sama (untuk smooth scroll)
+            if (linkUrl.pathname === currentUrl.pathname && linkUrl.hash) {
+                e.preventDefault(); // Hentikan aksi default
+                const targetSection = document.querySelector(linkUrl.hash);
+                if (targetSection) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    window.scrollTo({
+                        top: targetSection.offsetTop - navbarHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+            // Jika mengklik tautan ke halaman lain (misalnya dari portfolio ke index#home),
+            // JANGAN panggil e.preventDefault(). Biarkan browser berpindah halaman.
+        });
+    });
+
+
+    // --- SISA KODE ANDA (TIDAK PERLU DIUBAH) ---
+
     async function fetchPortfolioData() {
         if (!portfolioItemsContainer) return;
         try {
@@ -37,7 +110,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // --- Portfolio Initialization ---
     function initializePortfolio() {
         if (!portfolioItemsContainer) return;
         portfolioItemsContainer.innerHTML = '';
@@ -90,81 +162,45 @@ document.addEventListener('DOMContentLoaded', function() {
     
     fetchPortfolioData();
 
-    // === Mobile Menu Toggler ===
     if (mobileMenuButton && mobileNavLinks) {
-        mobileMenuButton.addEventListener('click', function() {
+        mobileMenuButton.addEventListener('click', function(e) {
+            e.preventDefault();
             mobileNavLinks.classList.toggle('active');
             this.classList.toggle('open');
         });
     }
 
-    function resetAllAnimations() {
-        allAnimatedElements.forEach(element => {
-            element.classList.remove('is-visible');
-        });
-    }
-
-    // === Navigation Link Handling ===
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            if (mobileNavLinks && mobileNavLinks.classList.contains('active')) {
-                mobileNavLinks.classList.remove('active');
-                if (mobileMenuButton) mobileMenuButton.classList.remove('open');
-            }
-            const targetId = this.getAttribute('href');
-            if (targetId && targetId.startsWith('#')) {
-                event.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    resetAllAnimations();
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-        });
-    });
-
-    // --- Scroll Animation (IntersectionObserver) ---
-// --- Scroll Animation (IntersectionObserver) ---
-    const observer = new IntersectionObserver((entries, observerInstance) => {
+    const animationObserver = new IntersectionObserver((entries, observerInstance) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Logika baru yang lebih kreatif untuk Tech Stack
                 if (entry.target === techIconsGrid) {
                     const techIcons = techIconsGrid.querySelectorAll('.tech-icon-item');
                     techIcons.forEach((icon, index) => {
                         setTimeout(() => {
-                            // Menambahkan kelas 'in-view' untuk memicu animasi dari CSS
                             icon.classList.add('in-view');
-                        }, 120 * index); // Penundaan 120ms untuk setiap ikon
+                        }, 120 * index);
                     });
-                    // Hentikan pengamatan setelah animasi berjalan sekali
                     observerInstance.unobserve(techIconsGrid);
                 } else {
-                    // Jalankan animasi umum untuk elemen lainnya
                     entry.target.classList.add('is-visible');
                 }
             }
         });
     }, {
-        threshold: 0.2 // Pemicu saat 20% elemen terlihat
+        threshold: 0.2
     });
 
-    // Observe semua elemen animasi umum
     if (allAnimatedElements.length > 0) {
         allAnimatedElements.forEach(element => {
-            // Pastikan kita tidak meng-observe ikon secara individual lagi
-            // karena kita meng-observe container-nya (techIconsGrid)
             if (!element.classList.contains('tech-icon-item')) {
-                observer.observe(element);
+                animationObserver.observe(element);
             }
         });
     }
-    // Observe grid ikon secara khusus
     if (techIconsGrid) {
-        observer.observe(techIconsGrid);
+        animationObserver.observe(techIconsGrid);
     }
-
-    // === Portfolio Filtering ===
+    
     if (filterButtons.length > 0 && portfolioItemsContainer) {
         filterButtons.forEach(button => {
             button.addEventListener('click', function(e) {
@@ -178,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     portfolioItems.forEach(item => {
                         const itemCategories = item.dataset.category.split(' ');
                         if (filter === 'all' || itemCategories.includes(filter)) {
-                            item.style.display = 'block';
+                            item.style.display = 'flex';
                         } else {
                             item.style.display = 'none';
                         }
@@ -189,7 +225,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // === Pop-up/Modal Functionality ===
     function attachDetailButtonListeners() {
         const detailButtons = document.querySelectorAll('.btn-detail');
         detailButtons.forEach(button => {
@@ -242,7 +277,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 modalTechLogos.innerHTML = '<p class="no-data">Tidak ada logo tools spesifik.</p>';
             }
             modalTechTags.innerHTML = '';
-            modalTechTags.classList.remove('tags');
             if (item.techSkills && item.techSkills.length > 0) {
                 modalTechTags.classList.add('tags');
                 item.techSkills.forEach(skill => {
@@ -278,19 +312,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // === Dark Mode Toggle Logic ===
     if (darkModeToggle && darkModeIcon) {
         function setTheme(isDark) {
-            // Tambahkan baris ini untuk toggle kelas 'active' pada tombolnya
-            darkModeToggle.classList.toggle('active');
-
             if (isDark) {
                 body.classList.add('dark-mode');
+                darkModeToggle.classList.add('active');
                 darkModeIcon.src = 'assets/images/mode/darkk.png';
                 darkModeIcon.alt = 'Dark Mode Icon';
                 localStorage.setItem('theme', 'dark');
             } else {
                 body.classList.remove('dark-mode');
+                darkModeToggle.classList.remove('active');
                 darkModeIcon.src = 'assets/images/mode/light.png';
                 darkModeIcon.alt = 'Light Mode Icon';
                 localStorage.setItem('theme', 'light');
@@ -298,15 +330,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-             setTheme(true);
-        } else {
-             setTheme(false);
-        }
+        setTheme(savedTheme === 'dark' || (!savedTheme && prefersDark));
         darkModeToggle.addEventListener('click', () => setTheme(!body.classList.contains('dark-mode')));
     }
 
-    // === Form Shake Animation ===
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
