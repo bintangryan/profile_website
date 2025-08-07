@@ -281,6 +281,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // === Dark Mode Toggle Logic ===
     if (darkModeToggle && darkModeIcon) {
         function setTheme(isDark) {
+            // Tambahkan baris ini untuk toggle kelas 'active' pada tombolnya
+            darkModeToggle.classList.toggle('active');
+
             if (isDark) {
                 body.classList.add('dark-mode');
                 darkModeIcon.src = 'assets/images/mode/darkk.png';
