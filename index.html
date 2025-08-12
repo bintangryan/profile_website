@@ -68,31 +68,61 @@
 
         <section id="about" class="about-section">
             <div class="container about-content">
-                <h2 class="animate-on-scroll fade-in">About Me</h2>
-                <div class="about-grid">
-                    <div class="about-text animate-on-scroll slide-in-left">
-                        <span class="profile-label">PROFILE</span>
-                        <p>
-                            Hi, I’m Bintang, an undergraduate Information Technology student at ITS Surabaya with a strong enthusiasm for Data Science and Digital Marketing. I have gained experience in data-driven projects and digital marketing, which have enhanced both my analytical and communication skills. I am eager to expand my knowledge and actively contribute in innovative and collaborative environments.
+                <div class="about-main-flex">
+                    <div class="about-text-wrapper animate-on-scroll slide-in-left">
+                        <h2 class="about-heading">About Me</h2>
+                        <h3 class="about-subheading">My Path to Data Science</h3>
+                        <p class="about-narrative">
+                            In high school, I was deeply involved in the arts and content creation, but then I chose to embrace a new challenge by pursuing Information Technology at ITS. This transition was demanding, requiring immense patience and effort to navigate a field that was entirely new to me.
+                        </p>
+                        <p class="about-narrative">
+                            Everything shifted when I was introduced to Data Science and Machine Learning. In this field, I became passionate about tech. For me, uncovering the stories within data turns what once felt overwhelming into puzzles that fuel my enthusiasm to solve them. This passion is now my main driver, and I am dedicated to deepening my expertise to turn my blended skill set into impactful solutions.
                         </p>
                     </div>
-                    <div class="about-image-and-interests animate-on-scroll slide-in-right">
-                        <div class="about-interests">
-                            <span class="interest-label">INTERESTS</span>
-                            <ul>
-                                <li>Data Science</li>
-                                <li>Machine Learning</li>
-                                <li>Digital Marketing</li>
-                                <li>UI/UX Design</li>
-                                <li>Graphic Design</li>
-                            </ul>
+
+                    <div class="about-photo-mosaic-wrapper animate-on-scroll slide-in-right">
+                        <div class="about-photo-mosaic">
+
+                            <div class="mosaic-item" data-images="assets/images/profile.jpg,assets/images/pro2.jpg,assets/images/pro3.jpg,assets/images/pro4.jpg,assets/images/pro5.jpg">
+                                <img src="assets/images/profile.jpg" alt="Foto Kolase 1" class="mosaic-image visible">
+                                <img src="" alt="Foto Kolase 1" class="mosaic-image hidden">
+                            </div>
+
+                            <div class="mosaic-item" data-images="assets/images/about/1.png,assets/images/about/2.png,assets/images/about/3.png,assets/images/about/4.png,assets/images/about/5.png,assets/images/about/6.png">
+                                <img src="assets/images/about/1.png" alt="Foto Kolase 2" class="mosaic-image visible">
+                                <img src="" alt="Foto Kolase 2" class="mosaic-image hidden">
+                            </div>
+
+                            <div class="mosaic-item" data-images="assets/images/about/2.png,assets/images/about/3.png,assets/images/about/4.png,assets/images/about/5.png,assets/images/about/6.png,assets/images/about/1.png">
+                                <img src="assets/images/about/2.png" alt="Foto Kolase 3" class="mosaic-image visible">
+                                <img src="" alt="Foto Kolase 3" class="mosaic-image hidden">
+                            </div>
+
                         </div>
                     </div>
                 </div>
 
+                <div class="about-interests-grid">
+                    <div class="interest-card animate-on-scroll fade-in animate-delay-1">
+                        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                        <h4 class="card-title">Data Science & Analytics</h4>
+                        <p class="card-desc">Translating complex data into clear, actionable insights</p>
+                    </div>
+                    <div class="interest-card animate-on-scroll fade-in animate-delay-2">
+                        <div class="card-icon"><i class="fas fa-bullhorn"></i></div>
+                        <h4 class="card-title">Digital Marketing</h4>
+                        <p class="card-desc">Translating market insights and audience trends into effective content and campaign strategies</p>
+                    </div>
+                    <div class="interest-card animate-on-scroll fade-in animate-delay-3">
+                        <div class="card-icon"><i class="fas fa-palette"></i></div>
+                        <h4 class="card-title">UI/UX & Graphic Design</h4>
+                        <p class="card-desc">Translating digital user behaviors into interfaces that are both intuitive and visually compelling</p>
+                    </div>
+                </div>
+                
                 <div class="about-tech-stack">
-                    <span class="tech-stack-label animate-on-scroll fade-in">TECH STACK</span>
-                    <div class="tech-icons-grid">
+                    <h3 class="tech-stack-title animate-on-scroll fade-in">Technology Skills</h3>
+                        <div class="tech-icons-grid">
                         <div class="tech-icon-item animate-on-scroll fade-in animate-delay-1">
                             <img src="assets/images/logos/pythonn.png" alt="Python Logo" loading="lazy"> <span>Python</span>
                         </div>
@@ -128,6 +158,15 @@
             </div>
         </section>
 
+        <div id="about-mosaic-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <img id="modal-mosaic-image" class="modal-preview-image" src="" alt="Mosaic Preview">
+                <p id="modal-mosaic-story"></p>
+            </div>
+        </div>
+        
+
         <section id="contact" class="contact-section">
             <div class="container contact-content">
                 <div class="contact-layout">
@@ -141,8 +180,7 @@
                         <textarea placeholder="Write Your Massage" rows="6" required></textarea>
 
                         <div class="form-footer">
-                            <button type="submit" class="btn btn-send">Send</button>
-                            <div class="social-links">
+                            <a href="#" id="sendToWhatsappBtn" class="btn btn-send">Send via WhatsApp</a>                            <div class="social-links">
                                 <div class="social-icons">
                                     <a href="https://linkedin.com/in/bintangwdn" target="_blank" aria-label="LinkedIn">
                                         <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM4 9H0v12h4zM2 0a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>

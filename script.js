@@ -17,26 +17,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const darkModeIcon = document.getElementById('darkModeIcon');
     const body = document.body;
-    const contactForm = document.getElementById('contactForm');
     const allAnimatedElements = document.querySelectorAll('.animate-on-scroll');
     const techIconsGrid = document.querySelector('.tech-icons-grid');
+    const mosaicContainer = document.querySelector('.about-photo-mosaic');
+    const contactForm = document.getElementById('contactForm');
+    const sendToWhatsappBtn = document.getElementById('sendToWhatsappBtn');
 
     // --- LOGIKA NAVIGASI FINAL ---
-
     function applyActiveClass() {
         const currentPath = window.location.pathname;
-
-        // Logika untuk Halaman Portfolio
         if (currentPath.includes('portfolio.html')) {
             allNavLinks.forEach(link => {
-                // Di halaman ini, link portofolio adalah href="#portfolio".
                 const isPortfolioLink = link.getAttribute('href') === '#portfolio';
                 link.classList.toggle('active', isPortfolioLink);
             });
-            return; // Selesai, jangan jalankan kode di bawah
+            return;
         }
-        
-        // Logika untuk Halaman Index (default)
         const sections = document.querySelectorAll('main section[id]');
         if (sections.length > 0) {
             const observer = new IntersectionObserver((entries) => {
@@ -45,8 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (entry.isIntersecting) {
                         const sectionId = `#${entry.target.id}`;
                         allNavLinks.forEach(link => {
-                            // Mencocokkan link yang href-nya mengandung id section
-                             if (link.getAttribute('href').endsWith(sectionId)) {
+                            if (link.getAttribute('href').endsWith(sectionId)) {
                                 link.classList.add('active');
                                 activeSectionFound = true;
                             } else {
@@ -55,29 +50,23 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                     }
                 });
-                // Fallback jika tidak ada section yang aktif (misal di paling bawah)
-                 if (!activeSectionFound) {
+                if (!activeSectionFound) {
                     allNavLinks.forEach(l => l.classList.remove('active'));
-                 }
+                }
             }, {
                 rootMargin: '-40% 0px -60% 0px'
             });
             sections.forEach(section => observer.observe(section));
         }
     }
-
-    // Panggil fungsi saat halaman dimuat
     applyActiveClass();
 
-    // Event listener untuk klik navigasi (MEMPERBAIKI NAVIGASI)
     allNavLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const linkUrl = new URL(link.href);
             const currentUrl = new URL(window.location.href);
-
-            // Jika mengklik tautan di halaman yang sama (untuk smooth scroll)
             if (linkUrl.pathname === currentUrl.pathname && linkUrl.hash) {
-                e.preventDefault(); // Hentikan aksi default
+                e.preventDefault();
                 const targetSection = document.querySelector(linkUrl.hash);
                 if (targetSection) {
                     const navbarHeight = document.querySelector('.navbar').offsetHeight;
@@ -87,14 +76,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             }
-            // Jika mengklik tautan ke halaman lain (misalnya dari portfolio ke index#home),
-            // JANGAN panggil e.preventDefault(). Biarkan browser berpindah halaman.
         });
     });
 
-
-    // --- SISA KODE ANDA (TIDAK PERLU DIUBAH) ---
-
+    // --- SISA KODE ANDA ---
     async function fetchPortfolioData() {
         if (!portfolioItemsContainer) return;
         try {
@@ -334,22 +319,75 @@ document.addEventListener('DOMContentLoaded', function() {
         darkModeToggle.addEventListener('click', () => setTheme(!body.classList.contains('dark-mode')));
     }
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault();
+    if (contactForm && sendToWhatsappBtn) {
+        sendToWhatsappBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Mencegah tautan berpindah halaman
+
+            // 1. Ambil data dari setiap kolom formulir
             const nameInput = contactForm.querySelector('input[type="text"]');
             const emailInput = contactForm.querySelector('input[type="email"]');
             const messageTextarea = contactForm.querySelector('textarea');
+
+            // 2. Cek apakah semua kolom sudah diisi
             if (!nameInput.value || !emailInput.value || !messageTextarea.value) {
+                alert('Mohon lengkapi semua kolom formulir terlebih dahulu!');
                 contactForm.classList.add('shake');
                 contactForm.addEventListener('animationend', () => {
                     contactForm.classList.remove('shake');
                 }, { once: true });
-                alert('Mohon lengkapi semua kolom formulir!');
-            } else {
-                alert('Fitur pengiriman pesan belum tersedia. Terima kasih telah mencoba!');
-                contactForm.reset();
+                return;
             }
+
+            // 3. Masukkan nomor WhatsApp Anda di sini (format 62, tanpa + atau 0)
+            const yourWhatsAppNumber = '6282275721647'; // <<< GANTI DENGAN NOMOR ANDA
+
+            // 4. Susun format pesan yang akan dikirim
+            const message = `Halo, nama saya *${nameInput.value}*.%0A%0A` +
+                            `*Email*: ${emailInput.value}%0A` +
+                            `*Pesan*:%0A${messageTextarea.value}`;
+
+            // 5. Buat URL WhatsApp
+            const whatsappURL = `https://wa.me/${yourWhatsAppNumber}?text=${message}`;
+
+            // 6. Buka WhatsApp di tab baru
+            window.open(whatsappURL, '_blank');
+        });
+    }
+
+    // --- KODE BARU UNTUK ANIMASI FOTO DIMASUKKAN DI SINI ---
+    if (mosaicContainer) {
+        const mosaicItems = mosaicContainer.querySelectorAll('.mosaic-item');
+
+        mosaicItems.forEach(item => {
+            const imagesAttr = item.getAttribute('data-images');
+            if (!imagesAttr) return;
+
+            const imageSources = imagesAttr.split(',').map(s => s.trim());
+            if (imageSources.length <= 1) return;
+
+            const imageElements = item.querySelectorAll('.mosaic-image');
+            let visibleIndex = 0;
+            let currentImagePointer = 0;
+
+            setInterval(() => {
+                let visibleImg = imageElements[visibleIndex];
+                let hiddenImg = imageElements[(visibleIndex + 1) % 2];
+
+                currentImagePointer = (currentImagePointer + 1) % imageSources.length;
+                hiddenImg.src = imageSources[currentImagePointer];
+                
+                visibleImg.style.transform = 'translateY(-100%)';
+
+                hiddenImg.style.transition = 'none';
+                hiddenImg.style.transform = 'translateY(100%)';
+                
+                void hiddenImg.offsetHeight;
+                
+                hiddenImg.style.transition = 'transform 0.8s cubic-bezier(0.8, 0, 0.2, 1)';
+                hiddenImg.style.transform = 'translateY(0)';
+
+                visibleIndex = (visibleIndex + 1) % 2;
+            }, 2500);
         });
     }
 });
