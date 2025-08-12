@@ -7,7 +7,7 @@
     --secondary-color: #CBDCEB; /* Light blue-gray for secondary accents/backgrounds */
     --accent-color: #1c68c5; /* Darker blue for accent */
     --footer-background-color: var(--text-color); /* Footer background is text color in light mode */
-    --navbar-background-color: rgba(0, 0, 0, 0.72); /* Latar belakang semi-transparan untuk light mode */
+    --navbar-background-color: rgba(0, 0, 0, 0.75); /* Latar belakang semi-transparan untuk light mode */
     --navbar-link-color: var(--background-color); /* Warna link diubah agar kontras */
     --navbar-link-hover-color: var(--secondary-color); /* Warna link saat hover */
     --mobile-menu-button-color: var(--background-color); /* Hamburger icon color */
@@ -39,11 +39,11 @@
 body.dark-mode {
     --text-color: #f0f0f0; /* Light gray for text in dark mode */
     --background-color: #131313; /* Dark background */
-    --primary-color: #4cbaff ; /* Lighter blue for primary accents in dark mode */
+    --primary-color: #28b4ff ; /* Lighter blue for primary accents in dark mode */
     --secondary-color: #2c2c2c; /* Darker gray for secondary accents/backgrounds in dark mode */
-    --accent-color: #4cbaff; /* Slightly brighter blue for accent in dark mode */
+    --accent-color: #28b4ff; /* Slightly brighter blue for accent in dark mode */
     --footer-background-color: var(--text-color); /* Footer background is main background in dark mode */
-    --navbar-background-color: rgba(255, 255, 255, 0.6); /* Latar belakang semi-transparan untuk light mode */
+    --navbar-background-color: rgba(255, 255, 255, 0.75); /* Latar belakang semi-transparan untuk light mode */
     --navbar-link-color: var(--background-color); /* Warna link diubah agar kontras */
     --navbar-link-hover-color: var(--secondary-color); /* Warna link saat hover */
     --mobile-menu-button-color:  #1A1A1A; /* Dark background */
