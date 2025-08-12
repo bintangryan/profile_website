@@ -790,75 +790,6 @@ body.dark-mode .portfolio-item .tags span { background-color: #333; }
     padding: 6px 14px; border-radius: 20px;
 }
 
-/* --- Responsif (Media Queries) --- */
-@media (max-width: 992px) {
-    .navbar .nav-links { display: none; }
-    .mobile-menu-button { display: block; position: absolute; right: 20px; top: 15px; }
-    .dark-mode-toggle { display: block; position: absolute; right: 70px; top: 15px; z-index: 1001; }
-
-    /* Portfolio Page Responsive */
-    #portfolio.portfolio-section { padding-top: var(--navbar-height); }
-
-    .portfolio-main-content {
-        display: grid;
-        /* Baris ini yang akan kita ubah */
-        grid-template-columns: 280px 1fr; 
-        align-items: flex-start;
-        gap: 0;
-    }
-
-    .filter-buttons {
-        position: static;
-        height: auto;
-        overflow-y: visible;
-        background-color: var(--background-color);
-        padding: 20px;
-        border: none;
-        width: 100%;
-        flex-direction: column; /* Ubah menjadi kolom lagi */
-        align-items: stretch; /* Tombol jadi full-width */
-    }
-
-    .filter-btn {
-        width: 100%;
-        text-align: center;
-    }
-
-    .portfolio-grid-wrapper {
-        padding: 40px 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    h1 { font-size: 2.5em; }
-    h2 { font-size: 2.0em; }
-    
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-content .text-content {
-        max-width: 100%;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 { font-size: 2em; }
-    h2 { font-size: 1.8em; }
-
-    .container {
-        padding: 0 15px;
-    }
-
-    .portfolio-grid-wrapper {
-        padding: 30px 15px;
-    }
-}
 
 /* === KODE BARU UNTUK SECTION ABOUT ME YANG CANTIK === */
 
@@ -1095,26 +1026,158 @@ body.dark-mode .portfolio-item .tags span { background-color: #333; }
         transform: translateY(-5px) scale(1.1);
 }
 
-/* RESPONSIVE DESIGN */
+/* --- Responsif (Media Queries) --- */
 @media (max-width: 992px) {
+    .navbar .nav-links { display: none; }
+    .mobile-menu-button { display: block; position: absolute; right: 20px; top: 15px; }
+    .dark-mode-toggle { display: block; position: absolute; right: 70px; top: 15px; z-index: 1001; }
+    
+    .hero-content {
+        flex-direction: column-reverse; /* Gambar di atas, teks di bawah */
+        text-align: center;
+        gap: 20px;
+        padding-bottom: 40px;
+    }
+
+    .hero-content .profile-pic {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 20px;
+    }
+
+    .hero-content .text-content {
+        order: 2;
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .hero-content .cta-buttons {
+        justify-content: center;
+    }
+    
     .about-main-flex {
         flex-direction: column;
+        gap: 40px;
+    }
+    
+    .about-photo-mosaic-wrapper {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .about-text-wrapper, .about-heading, .about-subheading {
         text-align: center;
     }
-    .about-text-wrapper {
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .contact-text {
         text-align: center;
     }
-    .about-heading, .about-subheading {
+
+    .contact-text h2, .contact-text p {
         text-align: center;
+        max-width: 100%;
+    }
+
+    #portfolio.portfolio-section { padding-top: var(--navbar-height); }
+
+    .portfolio-main-content {
+        grid-template-columns: 1fr; /* Filter di atas, grid di bawah */
+    }
+
+    .filter-buttons {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+        border: none;
+        width: 100%;
+        flex-direction: row; /* Kembali ke baris */
+        flex-wrap: wrap; /* Izinkan tombol untuk wrap */
+        justify-content: center; /* Tombol di tengah */
+        gap: 10px;
+        padding: 20px 15px;
+    }
+
+    .filter-btn {
+        width: auto; /* Lebar otomatis */
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    .portfolio-grid-wrapper {
+        padding: 20px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .tech-icons-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    h1 { font-size: 2.5em; }
+    h2 { font-size: 2.0em; }
+    
+    .hero-section {
+        align-items: center; /* Pusatkan konten vertikal */
+    }
+
+    .about-interests-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-icons-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
     }
 }
 
 @media (max-width: 480px) {
-    .about-profile-pic {
-        width: 250px;
-        height: 280px;
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.8em; }
+
+    .container {
+        padding: 0 15px;
     }
-    .about-subheading {
-        font-size: 2em;
+    
+    .hero-content .profile-pic {
+        width: 200px;
+        height: 200px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* Satu kolom di layar sangat kecil */
+    }
+    
+    .portfolio-grid-wrapper {
+        padding: 20px 15px;
+    }
+
+    .tech-icons-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .modal-content {
+        padding: 25px;
+        width: 95%;
+    }
+
+    .modal-preview-image {
+        height: 250px;
+    }
+
+    #modal-title {
+        font-size: 1.2em;
     }
 }
