@@ -64,6 +64,21 @@
         ]
     },
     "project4": {
+        "title": "Bonus Demografi Infographic",
+        "description": "This infographic examines Indonesia’s demographic bonus, where Gen Z (27.9%) and Millennials (25.8%) make up the largest share of the population. Although a majority in the productive age group should drive economic growth, data from 2021 to 2024 highlights a concerning gap: the labor force has been growing by 2.42 percent annually, while employment has increased by only 0.54 percent. Youth unemployment is particularly alarming, with around 16 percent unemployed compared to just 6.2 percent in Vietnam—meaning that 1 in 6 young Indonesians is unemployed. This suggests that the demographic bonus could become a ticking time bomb if the younger generation is not successfully absorbed into the workforce. \n\nEducation and investment patterns further reinforce this challenge. In 2024, 67 percent of the unemployed were high school graduates, while only 14.2 percent were university graduates, underscoring the importance of tertiary education in improving employability. Yet, Indonesia’s tertiary enrollment rate of 29 percent still falls far behind the OECD average. Meanwhile, labor-intensive sectors such as agriculture, forestry, and fisheries employ nearly 28 percent of workers but continue to receive the smallest share of investment. This imbalance shows that without strategic measures in education, investment, and job creation, Indonesia’s demographic advantage could quickly turn into a liability.",
+        "coverImage": "assets/images/vquest.png",
+        "previewImage": "assets/images/vquestt.png",
+        "techTools": [
+            { "name": "Excel", "icon": "assets/images/logos/excel.png" },
+            { "name": "Canva", "icon": "assets/images/logos/canva.png" }
+        ],
+        "techSkills": ["Data Analysis", "Data Visualization", "Graphic Design"],
+        "filterCategories": ["data-related", "competition"],
+        "links": [
+            { "text": "View Infographic", "url": "https://drive.google.com/file/d/1qFge6cgfV3TUszWpVTloYnbEgPU3cn69/view?usp=sharing" }
+        ]
+    },
+    "project5": {
         "title": "Customer Satisfaction Analysis of Qatar Airways Infographic",
         "description": "Infographic presenting data-driven analysis of customer satisfaction with Qatar Airways. Using Python, I explored flight ratings, common complaints, service feedback, and more to uncover key patterns in passenger experience. The visuals highlight which routes receive the highest praise, what aspects customers frequently complain about, and how satisfaction varies across classes. This infographic turns raw data into clear insights that reflect the voice of Qatar Airways passengers.",
         "coverImage": "assets/images/palkon.png",
@@ -80,7 +95,7 @@
             { "text": "View Infographic", "url": "https://drive.google.com/file/d/1AzKaX3SmqgyeEtN0VLatPjJ0H25_ltll/view?usp=sharing" }
         ]
     },
-    "projec5": {
+    "projec6": {
         "title": "Netflix Simulation Database",
         "description": "In this project, I led a team of three to build a simulated Netflix-style database using phpMyAdmin. I took charge of designing the Entity Relationship Diagram (ERD) and guiding the creation of key tables like Users, Movies, Genres, Subscriptions, and more. Through this project, I learned how to write SQL queries to input, retrieve and combine data from multiple tables, as well as how to manage and explore relational data effectively.",
         "coverImage": "assets/images/netflix.jpg",
@@ -94,7 +109,7 @@
             { "text": "View Project", "url": "https://docs.google.com/document/d/1RuPpMp3TyFudzz0Bo_HPGTyhwKRuhkvri_DLfIwYkNs/edit?usp=drivesdk" }
         ]
     },
-    "project6": {
+    "project7": {
         "title": "Fitlog Running App",
         "description": "I developed a mobile-app called FitLog with my two teammates. The app serves as a daily running diary, allowing users to log their running distance, calories burned, and more. In this project, I was responsible for the UI/UX design—starting from creating the user interface layout to implementing it on the frontend using Android Studio and Java.",
         "coverImage": "assets/images/fitlog.png",
