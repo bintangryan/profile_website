@@ -12,6 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalTechTags = document.getElementById('modal-tech-tags');
     const modalLinks = document.querySelector('.modal-links');
     const modalImage = document.getElementById('modal-image');
+    
+    // VARIABEL BARU UNTUK SWIPER
+    const modalPrevBtn = document.getElementById('modal-prev-btn');
+    const modalNextBtn = document.getElementById('modal-next-btn');
+    let currentImageIndex = 0;
+    let currentImageGallery = [];
+    // END VARIABEL BARU
+    
     const mobileMenuButton = document.querySelector('.mobile-menu-button');
     const mobileNavLinks = document.querySelector('.mobile-nav-links');
     const darkModeToggle = document.getElementById('darkModeToggle');
@@ -23,58 +31,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     const sendToWhatsappBtn = document.getElementById('sendToWhatsappBtn');
 
-    // --- LOGIKA NAVIGASI FINAL ---
-    function applyActiveClass() {
-        const currentPath = window.location.pathname;
-        if (currentPath.includes('portfolio.html')) {
-            allNavLinks.forEach(link => {
-                const isPortfolioLink = link.getAttribute('href') === '#portfolio';
-                link.classList.toggle('active', isPortfolioLink);
-            });
-            return;
-        }
-        const sections = document.querySelectorAll('main section[id]');
-        if (sections.length > 0) {
-            const observer = new IntersectionObserver((entries) => {
-                let activeSectionFound = false;
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const sectionId = `#${entry.target.id}`;
-                        allNavLinks.forEach(link => {
-                            if (link.getAttribute('href').endsWith(sectionId)) {
-                                link.classList.add('active');
-                                activeSectionFound = true;
-                            } else {
-                                link.classList.remove('active');
-                            }
-                        });
+    // --- LOGIKA NAVIGASI FINAL BARU (Disederhanakan) ---
+    const sections = document.querySelectorAll('main section[id]');
+    if (sections.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const sectionId = `#${entry.target.id}`;
+                allNavLinks.forEach(link => {
+                    const linkHash = new URL(link.href, document.location).hash;
+                    if (linkHash === sectionId || (link.href.includes('portfolio.html') && sectionId === '#portfolio')) {
+                        link.classList.toggle('active', entry.isIntersecting);
                     }
                 });
-                if (!activeSectionFound) {
-                    allNavLinks.forEach(l => l.classList.remove('active'));
-                }
-            }, {
-                rootMargin: '-40% 0px -60% 0px'
             });
-            sections.forEach(section => observer.observe(section));
-        }
+        }, {
+            rootMargin: '-40% 0px -60% 0px'
+        });
+        sections.forEach(section => observer.observe(section));
     }
-    applyActiveClass();
 
     allNavLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const linkUrl = new URL(link.href);
-            const currentUrl = new URL(window.location.href);
-            if (linkUrl.pathname === currentUrl.pathname && linkUrl.hash) {
-                e.preventDefault();
-                const targetSection = document.querySelector(linkUrl.hash);
-                if (targetSection) {
-                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                    window.scrollTo({
-                        top: targetSection.offsetTop - navbarHeight,
-                        behavior: 'smooth'
-                    });
-                }
+        link.addEventListener('click', function() {
+            if (mobileNavLinks.classList.contains('active')) {
+                mobileNavLinks.classList.remove('active');
+                mobileMenuButton.classList.remove('open');
             }
         });
     });
@@ -160,10 +140,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 if (entry.target === techIconsGrid) {
                     const techIcons = techIconsGrid.querySelectorAll('.tech-icon-item');
+                    // Ganti setTimeout dengan pengaturan transitionDelay
                     techIcons.forEach((icon, index) => {
-                        setTimeout(() => {
-                            icon.classList.add('in-view');
-                        }, 120 * index);
+                        // Menggunakan data-index atau fallback ke index + 1
+                        const delay = (parseInt(icon.getAttribute('data-index')) || (index + 1)) * 120; 
+                        icon.style.transitionDelay = `${delay}ms`;
+                        icon.classList.add('in-view');
                     });
                     observerInstance.unobserve(techIconsGrid);
                 } else {
@@ -217,14 +199,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function updateModalImage(index) {
+        // Efek fade-out
+        modalImage.style.opacity = '0'; 
+        setTimeout(() => {
+            modalImage.src = currentImageGallery[index];
+            modalImage.alt = item.title + " Image " + (index + 1);
+            // Efek fade-in
+            modalImage.style.opacity = '1'; 
+        }, 300); 
+
+        // Tampilkan tombol hanya jika ada lebih dari 1 gambar
+        const isMultiple = currentImageGallery.length > 1;
+        modalPrevBtn.style.display = isMultiple ? 'flex' : 'none';
+        modalNextBtn.style.display = isMultiple ? 'flex' : 'none';
+    }
+
     function handleDetailButtonClick() {
         const itemId = this.dataset.itemId;
         const item = portfolioData[itemId];
         if (item && modal) {
-            modalImage.src = item.previewImage || '';
-            modalImage.style.display = item.previewImage ? 'block' : 'none';
+            
             modalTitle.textContent = item.title;
             modalDesc.innerHTML = '';
+            
+            // Logika Deskripsi (Array atau String)
             if (Array.isArray(item.description)) {
                 const ul = document.createElement('ul');
                 ul.style.listStyle = 'disc';
@@ -238,6 +237,8 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 modalDesc.innerHTML = item.description.replace(/\n/g, '<br>');
             }
+            
+            // Logika Tech Logos
             modalTechLogos.innerHTML = '';
             if (item.techTools && item.techTools.length > 0) {
                 item.techTools.forEach(tool => {
@@ -261,6 +262,8 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 modalTechLogos.innerHTML = '<p class="no-data">Tidak ada logo tools spesifik.</p>';
             }
+            
+            // Logika Tech Tags
             modalTechTags.innerHTML = '';
             if (item.techSkills && item.techSkills.length > 0) {
                 modalTechTags.classList.add('tags');
@@ -272,6 +275,8 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                  modalTechTags.innerHTML = '<p class="no-data">Tidak ada skill yang tercantum.</p>';
             }
+            
+            // Logika Links
             modalLinks.innerHTML = '';
             if (item.links && item.links.length > 0) {
                 item.links.forEach(link => {
@@ -284,6 +289,61 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 modalLinks.innerHTML = '<p class="no-data">Tidak ada link terkait untuk proyek ini.</p>';
             }
+
+            // --- LOGIKA SWIPER SIKLUS (LOOPING) ---
+            
+            currentImageIndex = 0;
+            currentImageGallery = [];
+            
+            // 1. Kumpulkan semua gambar (Cover + Preview)
+            if (item.coverImage) currentImageGallery.push(item.coverImage); // Ambil cover image
+            
+            // LOGIKA BARU: Jika item.previewImage adalah ARRAY, tambahkan semua isinya
+            if (item.previewImage) {
+                if (Array.isArray(item.previewImage)) {
+                    currentImageGallery.push(...item.previewImage); // Menggunakan spread operator untuk array
+                } else if (item.previewImage !== item.coverImage) {
+                    currentImageGallery.push(item.previewImage); // Logika fallback untuk path tunggal
+                }
+            }
+            // 2. Terapkan logika siklus
+            if (currentImageGallery.length > 0) {
+                
+                // Fungsi untuk update sumber gambar (diperbarui agar dapat menggunakan item.title)
+                const updateImage = (index) => {
+                    modalImage.style.opacity = '0'; 
+                    setTimeout(() => {
+                        modalImage.src = currentImageGallery[index];
+                        modalImage.alt = item.title + " Image " + (index + 1);
+                        modalImage.style.opacity = '1'; 
+                    }, 300);
+                    // Tombol tetap terlihat jika lebih dari satu gambar
+                    const isMultiple = currentImageGallery.length > 1;
+                    modalPrevBtn.style.display = isMultiple ? 'flex' : 'none';
+                    modalNextBtn.style.display = isMultiple ? 'flex' : 'none';
+                };
+                
+                updateImage(currentImageIndex);
+                modalImage.style.display = 'block';
+
+                // Next Button (Maju Siklus)
+                modalNextBtn.onclick = function() {
+                    currentImageIndex = (currentImageIndex + 1) % currentImageGallery.length;
+                    updateImage(currentImageIndex);
+                };
+
+                // Previous Button (Mundur Siklus)
+                modalPrevBtn.onclick = function() {
+                    currentImageIndex = (currentImageIndex - 1 + currentImageGallery.length) % currentImageGallery.length;
+                    updateImage(currentImageIndex);
+                };
+            } else {
+                modalImage.style.display = 'none';
+                modalPrevBtn.style.display = 'none';
+                modalNextBtn.style.display = 'none';
+            }
+            // --- END LOGIKA SWIPER ---
+            
             modal.classList.add('show');
         }
     }

@@ -3,7 +3,11 @@
         "title": "Real-Time Big Data System for Bank Deposit",
         "description": "In a team of three, I took the lead in developing a big data system that used Apache Kafka for real-time data streaming and built a predictive model to determine the likelihood of bank customers opening a deposit account. My role involved designing the entire data pipeline, integrating Kafka for data streaming, preprocessing the data, and building the predictive model using machine learning techniques. The solution was implemented as a web application, allowing users to input customer data directly and instantly receive a prediction on whether the customer was likely to open a deposit account.",
         "coverImage": "assets/images/bigdata.png",
-        "previewImage": "assets/images/bigdataa.png",
+        "previewImage":[
+            "assets/images/bigdata/1.png",
+            "assets/images/bigdata/2.png",
+            "assets/images/bigdata/3.png"
+        ],
         "techTools": [
             { "name": "Scikit-learn", "icon": "assets/images/logos/sckitlearn.png" },
             { "name": "Python", "icon": "assets/images/logos/py.png" },
@@ -20,7 +24,11 @@
         "title": "Ketika Bumi Bercerita Infographic",
         "description": "I collaborated with my team on a national-level data visualization competition, HI-TECH 7 competition organized by Politeknik Caltex Riau, where we proudly secured 2nd place. This project aimed to raise public awareness about climate change by transforming complex environmental data into compelling, easy-to-understand visual narratives. I led the data analysis using Power BI to uncover key insights and translated those findings into impactful infographics using Canva. This project was a blend of analytical thinking and creative communication, designed to drive climate action through accessible and engaging data visualization.",
         "coverImage": "assets/images/bumi.png",
-        "previewImage": "assets/images/hitechh.jpg",
+        "previewImage":[
+            "assets/images/hitech/1.jpg",
+            "assets/images/hitech/2.jpg",
+            "assets/images/hitech/3.jpg"
+        ],
         "techTools": [
             { "name": "Power BI", "icon": "assets/images/logos/powerbi.png" },
             { "name": "Canva", "icon": "assets/images/logos/canva.png" }
@@ -33,10 +41,51 @@
         ]
     },
     "project2": {
+        "title": "Trademate E-Commerce (Full Stack)",
+        "description": "This project is a high-complexity, full-stack e-commerce and auction platform built using Next.js (React Frontend) and Node.js (REST API Backend), secured by JWT and powered by Prisma ORM for intricate data modeling. The core of the system is designed to handle two distinct, complex monetization workflows simultaneously : Fixed-Price Sales (Buy Now) and Advanced Live Auctions.\n\nBelow is a breakdown of the system’s key technical features and workflow complexities\n\n1. Dual Transaction Logic : Seamlessly manages traditional e-commerce flows (Cart, Checkout, Order) alongside the complex Live Auction/Bidding Logic, including bid validation, dynamic price and timer updates, and a controlled Re-Auction process upon failure.\n2. Price Negotiation System : A dedicated negotiation workflow enabling buyers to submit offers and sellers to accept, reject, or counter, creating a multi-stage pricing interaction for fixed-price items.\n3. Dynamic Product Filtering : Implements server-side and client-side logic to enable advanced search and filtering across both auction and fixed-price listings based on category, price range, condition, and status, ensuring optimal discoverability.\n4. Real-Time Notification System : Incorporates a robust, context-aware notification system to instantly alert users about critical events, such as being outbid, a successful bid, an offer status change, or order fulfillment updates, significantly enhancing user engagement.\n5. Intricate Relational Data : The Prisma schema models a complex relationship map (User, Product, Auction, Bid, Cart, Order, and Offer), showcasing expertise in designing and maintaining a scalable application with highly interconnected business entities.",
+        "coverImage": "assets/images/trade.png", 
+        "previewImage": [
+            "assets/images/trademate/1.png",
+            "assets/images/trademate/2.png",
+            "assets/images/trademate/3.png",
+            "assets/images/trademate/4.png",
+            "assets/images/trademate/5.png",
+            "assets/images/trademate/6.png",
+            "assets/images/trademate/7.png",
+            "assets/images/trademate/8.png",
+            "assets/images/trademate/9.png",
+            "assets/images/trademate/10.png",
+            "assets/images/trademate/11.png",
+            "assets/images/trademate/12.png"
+        ], 
+        "techTools": [
+            { "name": "Next.js", "icon": "assets/images/logos/next.svg" }, 
+            { "name": "Node.js", "icon": "assets/images/logos/node.svg" }, 
+            { "name": "Supabase", "icon": "assets/images/logos/supabase.webp" }, 
+            { "name": "Prisma", "icon": "assets/images/logos/prisma.svg" }, 
+            { "name": "Render", "icon": "assets/images/logos/render.avif" }, 
+            { "name": "Netlify", "icon": "assets/images/logos/netlify.svg" }, 
+            { "name": "Cloudinary", "icon": "assets/images/logos/cloudinary.svg" } 
+        ],
+        "techSkills": ["Full-Stack Development", "E-commerce Development","UI/UX Design", "Database Management"],
+        "filterCategories": ["web", "full-stack"],
+        "links": [
+            { "text": "Project Repository", "url": "https://github.com/bintangryan/trademate" },
+            { "text": "Link to Trademate", "url": "https://trademateweb.netlify.app/" }
+        ]
+    },
+    "project3": {
         "title": "EDA of Regional Transfer Fund Effectiveness",
         "description": "This project is a comparative study of the ceiling and realization of Regional Transfer Funds (TKDD) in Indonesian provinces in 2023. Data analysis was conducted through several key stages:\n\n1. Data Preparation: Loading datasets and performing initial understanding of data structure, as well as generating descriptive statistics.\n2.  Data Cleaning: Identifying and handling missing values and data duplication, including imputation using the median based on geographical proximity.\n3.  Initial Data Visualization: Creating visualizations such as histograms and boxplots to understand data distribution, detect skewness, and outliers.\n4.  Exploratory Data Analysis (EDA): Performing comparisons between TKDD ceilings and realizations, classifying realization percentages, identifying provinces with the highest and lowest realizations, and analyzing factors influencing TKDD realization and the Human Development Index (HDI). This also includes analyzing the relationship between TKDD realization and HDI.\n5.  Recommendation Formulation: Presenting key insights from the analysis and providing policy recommendations to improve the effectiveness of budget allocation and implementation.\n\nThe main goal of this analysis is to provide in-depth understanding of fund distribution effectiveness and a basis for policy recommendations.",
         "coverImage": "assets/images/techfest.png",
-        "previewImage": "assets/images/techfestt.png",
+        "previewImage": [
+            "assets/images/techfest/1.png",
+            "assets/images/techfest/2.png",
+            "assets/images/techfest/3.png",
+            "assets/images/techfest/4.png",
+            "assets/images/techfest/5.png",
+            "assets/images/techfest/6.png"
+        ],
         "techTools": [
             { "name": "Python", "icon": "assets/images/logos/py.png" },
             { "name": "Numpy", "icon": "assets/images/logos/numpy.png" },
@@ -49,11 +98,15 @@
             { "text": "More on Github", "url": "https://github.com/bintangryan/TECHFEST_EDA" }
         ]
     },
-    "project3": {
+    "project4": {
         "title": "Adidas Sales Performance Dashboard",
         "description":"This Power BI dashboard visualizes Adidas sales data in the United States using a dataset from Kaggle, covering the period from January 2020 to December 2021. The interactive dashboard showcases key insights such as total sales and profit, monthly trends in sales and profit, top-selling product categories and more.\n\nUsers can dynamically explore the data using slicers for year, month, city, retailer, and product, enabling tailored analysis. Through this project, I honed my skills in data analysis, DAX calculations, and dashboard design, which helped strengthen both my technical BI abilities and analytical thinking.",
         "coverImage": "assets/images/adidasc.png",
-        "previewImage": "assets/images/adidas.png",
+        "previewImage": [
+            "assets/images/adidas/1.png",
+            "assets/images/adidas/2.png",
+            "assets/images/adidas/3.png"
+        ],
         "techTools": [
             { "name": "Power BI", "icon": "assets/images/logos/powerbi.png" }
         ],
@@ -63,11 +116,16 @@
             { "text": "View Dashboard", "url": "https://app.powerbi.com/view?r=eyJrIjoiMGM1YzRlMmMtNjdhNS00OTY5LWJjMmMtYzEwN2U4NDQ1ZjBlIiwidCI6IjFkNTE2OWFjLWM3Y2ItNDI3NS05NzY0LWJmOGM5YzM2NGE0YyIsImMiOjEwfQ%3D%3D" }
         ]
     },
-    "project4": {
+    "project5": {
         "title": "Bonus Demografi Infographic",
         "description": "This infographic examines Indonesia’s demographic bonus, where Gen Z (27.9%) and Millennials (25.8%) make up the largest share of the population. Although a majority in the productive age group should drive economic growth, data from 2021 to 2024 highlights a concerning gap: the labor force has been growing by 2.42 percent annually, while employment has increased by only 0.54 percent. Youth unemployment is particularly alarming, with around 16 percent unemployed compared to just 6.2 percent in Vietnam—meaning that 1 in 6 young Indonesians is unemployed. This suggests that the demographic bonus could become a ticking time bomb if the younger generation is not successfully absorbed into the workforce. \n\nEducation and investment patterns further reinforce this challenge. In 2024, 67 percent of the unemployed were high school graduates, while only 14.2 percent were university graduates, underscoring the importance of tertiary education in improving employability. Yet, Indonesia’s tertiary enrollment rate of 29 percent still falls far behind the OECD average. Meanwhile, labor-intensive sectors such as agriculture, forestry, and fisheries employ nearly 28 percent of workers but continue to receive the smallest share of investment. This imbalance shows that without strategic measures in education, investment, and job creation, Indonesia’s demographic advantage could quickly turn into a liability.",
         "coverImage": "assets/images/vquest.png",
-        "previewImage": "assets/images/vquestt.png",
+        "previewImage": [
+            "assets/images/vquest/1.png",
+            "assets/images/vquest/2.png",
+            "assets/images/vquest/3.png",
+            "assets/images/vquest/4.png"
+        ],
         "techTools": [
             { "name": "Excel", "icon": "assets/images/logos/excel.png" },
             { "name": "Canva", "icon": "assets/images/logos/canva.png" }
@@ -78,7 +136,7 @@
             { "text": "View Infographic", "url": "https://drive.google.com/file/d/1qFge6cgfV3TUszWpVTloYnbEgPU3cn69/view?usp=sharing" }
         ]
     },
-    "project5": {
+    "project6": {
         "title": "Customer Satisfaction Analysis of Qatar Airways Infographic",
         "description": "Infographic presenting data-driven analysis of customer satisfaction with Qatar Airways. Using Python, I explored flight ratings, common complaints, service feedback, and more to uncover key patterns in passenger experience. The visuals highlight which routes receive the highest praise, what aspects customers frequently complain about, and how satisfaction varies across classes. This infographic turns raw data into clear insights that reflect the voice of Qatar Airways passengers.",
         "coverImage": "assets/images/palkon.png",
@@ -95,7 +153,7 @@
             { "text": "View Infographic", "url": "https://drive.google.com/file/d/1AzKaX3SmqgyeEtN0VLatPjJ0H25_ltll/view?usp=sharing" }
         ]
     },
-    "projec6": {
+    "project7": {
         "title": "Netflix Simulation Database",
         "description": "In this project, I led a team of three to build a simulated Netflix-style database using phpMyAdmin. I took charge of designing the Entity Relationship Diagram (ERD) and guiding the creation of key tables like Users, Movies, Genres, Subscriptions, and more. Through this project, I learned how to write SQL queries to input, retrieve and combine data from multiple tables, as well as how to manage and explore relational data effectively.",
         "coverImage": "assets/images/netflix.jpg",
@@ -109,7 +167,7 @@
             { "text": "View Project", "url": "https://docs.google.com/document/d/1RuPpMp3TyFudzz0Bo_HPGTyhwKRuhkvri_DLfIwYkNs/edit?usp=drivesdk" }
         ]
     },
-    "project7": {
+    "project8": {
         "title": "Fitlog Running App",
         "description": "I developed a mobile-app called FitLog with my two teammates. The app serves as a daily running diary, allowing users to log their running distance, calories burned, and more. In this project, I was responsible for the UI/UX design—starting from creating the user interface layout to implementing it on the frontend using Android Studio and Java.",
         "coverImage": "assets/images/fitlog.png",

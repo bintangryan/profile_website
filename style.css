@@ -1,4 +1,4 @@
-/* Variabel Warna */
+/* 1. ROOT & THEME VARIABLES */
 :root {
     --navbar-height: 60px;
     --text-color: #151515; /* Dark gray/nearly black for text in light mode */
@@ -6,20 +6,20 @@
     --primary-color: #1c68c5; /* Blue for primary accents */
     --secondary-color: #CBDCEB; /* Light blue-gray for secondary accents/backgrounds */
     --accent-color: #1c68c5; /* Darker blue for accent */
-    --footer-background-color: var(--text-color); /* Footer background is text color in light mode */
-    --navbar-background-color: rgba(0, 0, 0, 0.75); /* Latar belakang semi-transparan untuk light mode */
-    --navbar-link-color: var(--background-color); /* Warna link diubah agar kontras */
-    --navbar-link-hover-color: var(--secondary-color); /* Warna link saat hover */
-    --mobile-menu-button-color: var(--background-color); /* Hamburger icon color */
-    --mobile-nav-background: var(--background-color); /* Mobile nav background */
-    --mobile-nav-link-color: var(--text-color); /* Mobile nav link color */
-    --modal-background: var(--background-color); /* Modal background */
-    --modal-close-button-color: var(--text-color); /* Modal close button color */
-    --modal-h3-color: var(--primary-color); /* Modal h3 color */
-    --modal-h4-color: var(--text-color); /* Modal h4 color */
-    --modal-tech-logo-color: var(--primary-color); /* Modal tech logo icon color */
-    --portfolio-item-background: var(--background-color); /* Portfolio item background */
-    --portfolio-item-hover-transform: translateY(-20px);
+    --footer-background-color: var(--text-color);
+    --navbar-background-color: rgba(0, 0, 0, 0.75);
+    --navbar-link-color: var(--background-color);
+    --navbar-link-hover-color: var(--secondary-color);
+    --mobile-menu-button-color: var(--background-color);
+    --mobile-nav-background: var(--background-color);
+    --mobile-nav-link-color: var(--text-color);
+    --modal-background: var(--background-color);
+    --modal-close-button-color: var(--text-color);
+    --modal-h3-color: var(--primary-color);
+    --modal-h4-color: var(--text-color);
+    --modal-tech-logo-color: var(--primary-color);
+    --portfolio-item-background: var(--background-color);
+    --portfolio-item-hover-transform: translateY(-5px);
     --filter-button-background: var(--background-color);
     --filter-button-color: var(--text-color);
     --filter-button-hover-background: var(--primary-color);
@@ -37,25 +37,25 @@
 }
 
 body.dark-mode {
-    --text-color: #f0f0f0; /* Light gray for text in dark mode */
-    --background-color: #131313; /* Dark background */
-    --primary-color: #28b4ff ; /* Lighter blue for primary accents in dark mode */
-    --secondary-color: #2c2c2c; /* Darker gray for secondary accents/backgrounds in dark mode */
-    --accent-color: #28b4ff; /* Slightly brighter blue for accent in dark mode */
-    --footer-background-color: var(--text-color); /* Footer background is main background in dark mode */
-    --navbar-background-color: rgba(255, 255, 255, 0.75); /* Latar belakang semi-transparan untuk light mode */
-    --navbar-link-color: var(--background-color); /* Warna link diubah agar kontras */
-    --navbar-link-hover-color: var(--secondary-color); /* Warna link saat hover */
-    --mobile-menu-button-color:  #1A1A1A; /* Dark background */
-    --mobile-nav-background: var(--secondary-color); /* Mobile nav background */
-    --mobile-nav-link-color: #f0f0f0; /* Mobile nav link color */
-    --modal-background: #181818; /* Modal background */
-    --modal-close-button-color: #f0f0f0; /* Modal close button color */
-    --modal-h3-color: var(--primary-color); /* Modal h3 color */
-    --modal-h4-color: #f0f0f0; /* Modal h4 color */
-    --modal-tech-logo-color: var(--primary-color); /* Modal tech logo icon color */
-    --portfolio-item-background: var(--background-color); /* Portfolio item background */
-    --portfolio-item-hover-transform: translateY(-20px); /* Less dramatic hover for dark mode */
+    --text-color: #f0f0f0;
+    --background-color: #131313;
+    --primary-color: #28b4ff ;
+    --secondary-color: #2c2c2c;
+    --accent-color: #28b4ff;
+    --footer-background-color: var(--text-color);
+    --navbar-background-color: rgba(255, 255, 255, 0.75);
+    --navbar-link-color: var(--background-color);
+    --navbar-link-hover-color: var(--secondary-color);
+    --mobile-menu-button-color:  #1A1A1A;
+    --mobile-nav-background: var(--secondary-color);
+    --mobile-nav-link-color: #f0f0f0;
+    --modal-background: #181818;
+    --modal-close-button-color: #f0f0f0;
+    --modal-h3-color: var(--primary-color);
+    --modal-h4-color: #f0f0f0;
+    --modal-tech-logo-color: var(--primary-color);
+    --portfolio-item-background: var(--background-color);
+    --portfolio-item-hover-transform: translateY(-5px);
     --filter-button-background: var(--background-color);
     --filter-button-color: #f0f0f0;
     --filter-button-hover-background: var(--primary-color);
@@ -71,16 +71,10 @@ body.dark-mode {
     --about-interest-bullet-color: var(--primary-color);
     --tech-icon-item-color: #f0f0f0;
 }
-body.dark-mode .hero-content .profile-pic {
-    background-color: #b4b4b4;
-}
+body.dark-mode .hero-content .profile-pic { background-color: #b4b4b4; }
 
-/* Reset dan Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* 2. BASE & TYPOGRAPHY */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -88,59 +82,24 @@ body {
     background-color: var(--background-color);
     line-height: 1.6;
     scroll-behavior: smooth;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for color changes */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
-h1, h2, h3 {
-    color: var(--text-color);
-    margin-bottom: 20px;
-    font-weight: 700;
-}
+h1, h2, h3 { color: var(--text-color); margin-bottom: 20px; font-weight: 700; }
+h1 { font-size: 3.2em; line-height: 1.1; }
+h2 { font-size: 2.8em; text-align: center; margin-bottom: 40px; }
+h3 { font-size: 1.8em; margin-bottom: 15px; color: var(--primary-color); }
+p { font-size: 1.1em; }
 
-h1 {
-    font-size: 3.2em; /* Sekitar 56px */
-    line-height: 1.1;
-}
+a { color: var(--primary-color); text-decoration: none; transition: color 0.4s ease; }
+a:hover { color: var(--accent-color); }
+.primary-color { color: var(--primary-color); }
 
-h2 {
-    font-size: 2.8em; /* Sekitar 44px */
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-h3 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-
-p {
-    font-size: 1.1em; /* Sekitar 17.6px */
-}
-
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.4s ease;
-}
-
-a:hover {
-    color: var(--accent-color);
-}
-
-.primary-color {
-    color: var(--primary-color);
-}
-
-/* Tombol */
+/* 3. BUTTONS & CTAS */
 .btn {
-    display: inline-0block;
+    display: inline-block;
     padding: 8px 24px;
     border-radius: 50px;
     font-weight: 600;
@@ -149,248 +108,72 @@ a:hover {
     text-align: center;
     cursor: pointer;
 }
+.btn-secondary { background-color: transparent; color: var(--text-color); border: 2px solid var(--text-color); }
+.btn-secondary:hover { background-color: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); transform: translateY(-5px) scale(1.1); }
+.btn-primary { background-color: var(--text-color); color: var(--background-color); }
+.btn-primary:hover { background-color: var(--primary-color); color: var(--background-color); transform: translateY(-5px) scale(1.1); }
+.btn-send { background-color: var(--text-color); border: 0; color: var(--background-color); }
+.btn-send:hover { background-color: var(--primary-color); color: var(--background-color); transform: translateY(-5px) scale(1.1); }
 
-.btn-secondary {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+/* New CV Text Link Style */
+.hero-content .cta-buttons .btn-cv-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 1em;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    padding: 8px 10px;
+    border-radius: 4px;
+    margin: 0;
 }
-
-.btn-secondary:hover {
-    background-color: var(--text-color);
-    color: var(--background-color);
-    border: 2px solid var(--text-color);
-    transform: translateY(-5px) scale(1.1);
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--background-color);
-}
-
-.btn-primary:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-    transform: translateY(-5px) scale(1.1);
-}
-
-.btn-send {
-    background-color: var(--text-color);
-    border: 0px;
-    color: var(--background-color);
-}
-
-.btn-send:hover {
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    transform: translateY(-5px) scale(1.1);
-}
+.hero-content .cta-buttons .btn-cv-text i { font-size: 1em; }
+.hero-content .cta-buttons .btn-cv-text:hover { color: var(--primary-color); transform: translateY(-2px) scale(1.02); }
 
 
+/* 4. NAVIGATION & MOBILE */
 .navbar { position: fixed; top: 0; left: 0; width: 100%; background-color: var(--navbar-background-color); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); z-index: 1000; padding: 6px 0; transition: background-color 0.3s ease, box-shadow 0.3s ease; backdrop-filter: blur(12px); }
-.navbar-content { display: flex; justify-content: space-between; align-items: center; min-height: 48px; /* TENTUKAN TINGGI MINIMAL NAVBAR */ }
+.navbar-content { display: flex; justify-content: space-between; align-items: center; min-height: 48px; }
 .navbar .logo { font-size: 1.5em; font-weight: 700; color: var(--navbar-link-color); }
 .navbar .nav-links { list-style: none; display: flex; }
 .navbar .nav-links li { margin-left: 60px; }
 .navbar .nav-links a { font-size: 1em; font-weight: 600; color: var(--navbar-link-color); transition: color 0.5s ease; position: relative; padding-bottom: 5px; overflow: hidden; }
 .navbar .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--background-color); transition: width 0.5s ease-out; }
-.navbar .nav-links a:hover::after,
-.navbar .nav-links a.active::after {width: 100%;}
-
-
+.navbar .nav-links a:hover::after, .navbar .nav-links a.active::after { width: 100%; }
 
 /* Mobile Menu Button (Hamburger) */
-.mobile-menu-button {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    position: relative; /* Untuk animasi bar */
-    z-index: 1001; /* Pastikan di atas menu mobile */
-}
-
-.mobile-menu-button .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: var(--mobile-menu-button-color);
-    margin: 5px auto;
-    transition: all 0.5s ease-in-out;
-}
-
-/* Hamburger animation */
-.mobile-menu-button.open .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-.mobile-menu-button.open .bar:nth-child(2) {
-    opacity: 0;
-}
-.mobile-menu-button.open .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
+.mobile-menu-button { display: none; background: none; border: none; cursor: pointer; padding: 10px; position: relative; z-index: 1001; }
+.mobile-menu-button .bar { display: block; width: 25px; height: 3px; background-color: var(--mobile-menu-button-color); margin: 5px auto; transition: all 0.5s ease-in-out; }
+.mobile-menu-button.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.mobile-menu-button.open .bar:nth-child(2) { opacity: 0; }
+.mobile-menu-button.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 /* Mobile Nav Links */
-.mobile-nav-links {
-    list-style: none;
-    display: none; /* Sembunyikan secara default */
-    flex-direction: column;
-    width: 100%;
-    background-color: var(--mobile-nav-background);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    padding-bottom: 10px;
-    position: absolute;
-    top: 60px; /* Di bawah navbar */
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    max-height: 0; /* Untuk animasi slide */
-    transition: max-height 0.5s ease-in-out, background-color 0.5s ease;
-}
+.mobile-nav-links { list-style: none; display: none; flex-direction: column; width: 100%; background-color: var(--mobile-nav-background); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); text-align: center; padding-bottom: 10px; position: absolute; top: 60px; left: 0; right: 0; overflow: hidden; max-height: 0; transition: max-height 0.5s ease-in-out, background-color 0.5s ease; }
+.mobile-nav-links.active { display: flex; max-height: 300px; }
+.mobile-nav-links li { margin: 10px 0; }
+.mobile-nav-links a { font-size: 1.1em; font-weight: 600; color: var(--mobile-nav-link-color); padding: 10px 0; display: block; }
+.mobile-nav-links a:hover { color: var(--primary-color); }
 
-.mobile-nav-links.active {
-    display: flex;
-    max-height: 300px; /* Nilai cukup besar untuk menampung semua link */
-}
+.dark-mode-toggle { background: none; border: none; cursor: pointer; margin-left: 20px; transition: transform 0.3s ease; padding: 0; display: flex; align-items: center; justify-content: center; }
+.dark-mode-toggle:hover { transform: scale(1.2); }
+.dark-mode-toggle .dark-mode-icon { width: 28px; height: 28px; display: block; transition: transform 0.5s ease; }
+.dark-mode-toggle.active .dark-mode-icon { transform: rotate(360deg); }
 
-.mobile-nav-links li {
-    margin: 10px 0;
-}
 
-.mobile-nav-links a {
-    font-size: 1.1em;
-    font-weight: 600;
-    color: var(--mobile-nav-link-color);
-    padding: 10px 0;
-    display: block;
-}
-
-.mobile-nav-links a:hover {
-    color: var(--primary-color);
-}
-
-.dark-mode-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-left: 20px;
-    transition: transform 0.3s ease;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Efek saat hover tetap ada, tidak masalah */
-.dark-mode-toggle:hover {
-    transform: scale(1.2);
-}
-
-/* Styling untuk gambar ikon di dalamnya */
-.dark-mode-toggle .dark-mode-icon {
-    width: 28px;
-    height: 28px;
-    display: block;
-    /* Transisi ini akan membuat animasi putaran menjadi halus */
-    transition: transform 0.5s ease;
-}
-
-/* Saat tombol memiliki kelas .active, ikon di dalamnya akan berputar */
-.dark-mode-toggle.active .dark-mode-icon {
-    transform: rotate(360deg);
-}
-
-/* Ensure toggle button is visible on mobile */
-@media (max-width: 992px) {
-    .dark-mode-toggle {
-        display: block;
-        position: absolute;
-        right: 70px;
-        top: 15px;
-        z-index: 1001;
-    }
-}
-
-/* Animasi Muncul Saat Scroll */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(40px); /* Mulai sedikit di bawah */
-}
-
-.animate-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-/* ===== KODE CSS BARU UNTUK ANIMASI SECTION ===== */
-
-/* Mendefinisikan keyframes untuk animasi */
-@keyframes sectionAnimate {
-  from {
-    opacity: 0.7;
-    transform: scale(0.99);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Class yang akan kita panggil dari JavaScript untuk menjalankan animasi */
-.animate-section {
-  animation: sectionAnimate 0.7s ease-out;
-}
-.fade-in {
-    opacity: 0;
-}
-
-.fade-in.is-visible {
-    opacity: 1;
-    transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.slide-in-left {
-    opacity: 0;
-    transform: translateX(-50px);
-}
-
-.slide-in-left.is-visible {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.slide-in-right {
-    opacity: 0;
-    transform: translateX(50px);
-}
-
-.slide-in-right.is-visible {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* Delay untuk elemen yang muncul secara berurutan */
-.animate-on-scroll.is-visible.animate-delay-1 { transition-delay: 0.1s; }
-.animate-on-scroll.is-visible.animate-delay-2 { transition-delay: 0.2s; }
-.animate-on-scroll.is-visible.animate-delay-3 { transition-delay: 0.3s; }
-.animate-on-scroll.is-visible.animate-delay-4 { transition-delay: 0.4s; }
-.animate-on-scroll.is-visible.animate-delay-5 { transition-delay: 0.5s; }
-.animate-on-scroll.is-visible.animate-delay-6 { transition-delay: 0.6s; }
-.animate-on-scroll.is-visible.animate-delay-7 { transition-delay: 0.7s; }
-.animate-on-scroll.is-visible.animate-delay-8 { transition-delay: 0.8s; }
-.animate-on-scroll.is-visible.animate-delay-9 { transition-delay: 0.9s; }
-.animate-on-scroll.is-visible.animate-delay-10 { transition-delay: 1.0s; }
-
+/* 5. GENERAL ANIMATIONS & UTILS */
+.animate-on-scroll { opacity: 0; transform: translateY(40px); }
+.animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+.fade-in { opacity: 0; }
+.fade-in.is-visible { opacity: 1; transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1); }
+.slide-in-left { opacity: 0; transform: translateX(-50px); }
+.slide-in-left.is-visible { opacity: 1; transform: translateX(0); transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
+.slide-in-right { opacity: 0; transform: translateX(50px); }
+.slide-in-right.is-visible { opacity: 1; transform: translateX(0); transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
 
 /* Animasi Denyutan Warna untuk nama "Bintang Ryan" */
-#animated-name span {
-    display: inline-block;
-    animation: colorPulse 2s infinite alternate;
-}
-
+#animated-name span { display: inline-block; animation: colorPulse 2s infinite alternate; }
 #animated-name span:nth-child(1) { animation-delay: 0.1s; }
 #animated-name span:nth-child(2) { animation-delay: 0.2s; }
 #animated-name span:nth-child(3) { animation-delay: 0.3s; }
@@ -407,371 +190,207 @@ a:hover {
 #animated-name span:nth-child(14) { animation-delay: 1.4s; }
 
 @keyframes colorPulse {
-    0% {
-        color: var(--primary-color);
-        transform: scale(1);
-    }
-    50% {
-        color: var(--text-color);
-        transform: scale(1);
-    }
-    100% {
-        color: var(--primary-color);
-        transform: scale(1);
-    }
+    0%, 100% { color: var(--primary-color); transform: scale(1); }
+    50% { color: var(--text-color); transform: scale(1); }
 }
 
-
-/* --- Hero Section --- */
-.hero-section {
-    min-height: 100vh; /* Pastikan section hero minimal setinggi viewport */
-    display: flex;
-    align-items: flex-end; /* FOTO DAN KONTEN TEKS AKAN MENEMPEL KE BAWAH */
-    justify-content: center;
-    padding-top: 80px; /* Adjust based on navbar height */
-    background-color: var(--background-color);
-    text-align: center; /* Default center for overall section, adjusted within .hero-content */
-    transition: background-color 0.8s ease;
+/* Animasi Tech Stack Drop In */
+.tech-icon-item { 
+    /* Menerapkan Flexbox untuk penataan vertikal dan centering */
+    display: flex; 
+    flex-direction: column; /* Menumpuk item (gambar dan teks) secara vertikal */
+    align-items: center; /* Meratakan item secara horizontal (center) */
+    text-align: center; /* Memastikan teks di dalamnya juga rata tengah */
+    gap: 5px; /* Memberi sedikit jarak antara logo dan teks */
+    
+    opacity: 0; 
+    transform: translateY(-20px); 
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease; 
+    border-radius: 12px; 
+    padding: 10px; 
 }
-
-.hero-content {
-    max-width: 1600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row; /* Default: text on left, image on right */
-    align-items: flex-end; /* Konten di dalam hero-content juga menempel ke bawah */
-    justify-content: center; /* Center content horizontally within its max-width */
-    gap: 80px; /* Space between text/buttons and image */
-    text-align: left; /* Align text content to the left */
-    width: 100%; /* Pastikan hero-content mengambil lebar penuh kontainer */
-}
-
-.hero-content .profile-pic {
-    margin-top: 20px;
-    width: 320px;  /* Lebar foto 400px */
-    height: 320px; /* Tinggi foto 400px */
-     border-radius: 50%;  /* Anda sudah meminta untuk tidak ada border/shadow */
-    object-fit: cover;
-    order: 2; /* Pindahkan gambar ke kanan */
-    flex-shrink: 0;
-    background-color: var(--secondary-color); /* Adjust based on theme */
-    align-self: flex-end; /* Pastikan gambar menempel ke bawah jika tinggi lebih pendek dari text-content */
-    transition: background-color 0.8s ease;
-}
-
-.hero-content .text-content { /* Wrapper baru untuk teks dan tombol */
-    order: 1; /* Posisikan teks dan tombol di kiri */
-    flex: 1; /* Allow text content to take available space */
-    min-width: 300px; /* Ensure text content has enough space */
-    max-width: 600px; /* Max width for text content */
-    display: flex; /* Aktifkan flexbox untuk text-content */
-    flex-direction: column; /* Atur konten di dalamnya menjadi kolom */
-    justify-content: flex-end; /* Konten teks menempel ke bawah */
-    padding-bottom: 0; /* Pastikan tidak ada padding tambahan yang mendorong ke atas */
-}
-
-.hero-content h1 {
-    font-size: 3em;
-    margin-bottom: 15px;
-    margin-top: 0; /* Reset margin top */
-}
-
-.hero-content .tagline {
-    font-size: 1.18em;
-    margin-bottom: 40px;
-    color: var(--text-color);
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-}
-
-.hero-content .cta-buttons {
-    display: flex;
-    justify-content: flex-start; /* Align buttons to the left */
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-/* --- Section Umum --- */
-section {
-    padding: 80px 0;
-}
-
-#contact.contact-section {
-    background-color: var(--background-color);
-    transition: background-color 0.8s ease;
-}
-
-/* KUNCI PERBAIKAN: Beri padding atas pada section agar tidak tertutup navbar */
-#portfolio.portfolio-section {
-    padding-top: var(--navbar-height); /* Memberi ruang untuk navbar fixed di atasnya */
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    background-color: var(--secondary-color);
-}
-
-#portfolio.portfolio-section .container {
-    max-width: 100%;
-    padding: 0;
-}
-
-.portfolio-main-content {
-    display: grid;
-    /* Ubah 280px menjadi lebih kecil, misalnya 220px */
-    grid-template-columns: 220px 1fr; 
-    align-items: flex-start;
-    gap: 0;
-}
+.tech-icon-item.in-view { opacity: 1; transform: translateY(0) scale(1); }
+@keyframes dropIn { 0% { opacity: 0; transform: translateY(-20px) scale(0.9); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
 
 
-/* Bagian ini sudah benar, akan menempel pada posisi yang tepat karena parent-nya sudah diberi padding */
-.filter-buttons {
-    position: sticky;
-    top: var(--navbar-height);
-    height: calc(100vh - var(--navbar-height));
-    overflow-y: auto;
-    background-color: var(--background-color);
-    padding: 25px;
-    border-right: 1px solid #e0e0e0;
-}
+/* 6. MAIN SECTIONS (HERO, ABOUT, CONTACT) */
+section { padding: 80px 0; }
+.hero-section { min-height: 100vh; display: flex; align-items: flex-end; justify-content: center; padding-top: 80px; background-color: var(--background-color); text-align: center; transition: background-color 0.8s ease; }
+.hero-content { max-width: 1600px; margin: 0 auto; display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 80px; text-align: left; width: 100%; }
+.hero-content .profile-pic { margin-top: 20px; width: 320px; height: 320px; border-radius: 50%; object-fit: cover; order: 2; flex-shrink: 0; background-color: var(--secondary-color); align-self: flex-end; transition: background-color 0.8s ease; }
+.hero-content .text-content { order: 1; flex: 1; min-width: 300px; max-width: 600px; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 0; }
+.hero-content h1 { font-size: 3em; margin-bottom: 15px; margin-top: 0; }
+.hero-content .tagline { font-size: 1.18em; margin-bottom: 40px; color: var(--text-color); font-family: 'Inter', sans-serif; font-weight: 400; }
+.hero-content .cta-buttons { display: flex; justify-content: flex-start; gap: 20px; flex-wrap: wrap; }
 
-body.dark-mode .filter-buttons {
-    border-right-color: #2a2a2a;
-}
+/* ABOUT SECTION */
+#about.about-section { background: var(--background-color); padding: 100px 0; overflow: hidden; transition: background-color 0.3s ease; }
+.about-main-flex { display: flex; align-items: center; gap: 60px; margin-bottom: 80px; }
+.about-photo-mosaic-wrapper { flex-shrink: 0; width: 45%; }
+.about-photo-mosaic { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); gap: 15px; height: 380px; }
+.mosaic-item { position: relative; overflow: hidden; border-radius: 12px; }
+.mosaic-image { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; position: absolute; top: 0; left: 0; transition: transform 0.8s cubic-bezier(0.8, 0, 0.2, 1); }
+.mosaic-image.visible { transform: translateY(0); }
+.mosaic-image.hidden { transform: translateY(100%); }
+.mosaic-item:nth-child(1) { grid-column: 1 / 2; grid-row: 1 / 3; }
+.mosaic-item:nth-child(2) { grid-column: 2 / 3; grid-row: 1 / 2; }
+.mosaic-item:nth-child(3) { grid-column: 2 / 3; grid-row: 2 / 3; }
+.about-text-wrapper { flex-grow: 1; }
+.about-heading { font-size: 1em; font-weight: 600; color: var(--primary-color); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; text-align: left; }
+.about-subheading { font-size: 2.5em; color: var(--text-color); margin-bottom: 20px; font-weight: 700; }
+.about-narrative { font-size: 0.9em; line-height: 1.6; text-align: justify; color: var(--text-color); opacity: 0.85; margin-bottom: 15px; }
+.about-narrative strong { color: var(--primary-color); font-weight: 600; }
+.about-interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 80px; }
+.interest-card { background: var(--secondary-color); padding: 30px; border-radius: 12px; text-align: center; border: 1px solid transparent; transition: all 0.3s ease-in-out; }
+.interest-card:hover { transform: translateY(-10px); border-color: var(--primary-color); background: var(--background-color); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08); }
+.card-icon { font-size: 2.5em; color: var(--primary-color); margin-bottom: 15px; line-height: 1; }
+.card-title { font-size: 1.2em; color: var(--text-color); margin-bottom: 10px; }
+.card-desc { font-size: 0.9em; color: var(--text-color); opacity: 0.7; }
+.tech-stack-title { text-align: center; font-size: 2em; color: var(--text-color); margin-bottom: 40px; }
+.tech-icons-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 30px 20px; justify-content: start; max-width: 100%; margin: 0; overflow: hidden; }
+.tech-icon-item img { width: 60px; height: 60px; object-fit: contain; transition: transform 0.3s ease; }
+.tech-icon-item img:hover { transform: translateY(-5px) scale(1.1); }
 
+/* CONTACT SECTION */
+.contact-section { text-align: center; padding-bottom: 72px; }
+.contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; text-align: left; max-width: 1000px; margin: 0 auto; }
+.contact-text h2{ text-align: left; color: var(--primary-color); }
+.contact-text p { font-size: 1em; max-width: 400px; text-align: left; }
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 2px solid var(--contact-input-border); border-radius: 8px; background-color: var(--contact-input-background); color: var(--text-color); font-size: 1em; transition: border-color 0.3s ease, background-color 0.5s ease, color 0.5s ease; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary-color); }
+.contact-form textarea { resize: vertical; }
+.form-footer { display: flex; align-items: center; gap: 14px; margin-top: 10px; flex-wrap: wrap; }
+.form-footer .btn-primary { min-width: 100px; margin: 0; }
+.social-links { display: flex; align-items: center; gap: 15px; }
+.social-links p { margin-bottom: 0; font-size: 1em; white-space: nowrap; }
+.social-icons { display: flex; align-items: center; gap: 15px; margin-left: 10px; }
+.social-icons a { color: var(--social-icon-color); font-size: 1.5em; line-height: 1; transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.3s ease; }
+.social-icons a:hover { color: var(--social-icon-hover-color); transform: translateY(-5px) scale(1.1); }
+.social-icons svg { width: 32px; height: 32px; fill: currentColor; display: block; }
+@keyframes shake { 10%, 90% { transform: translate3d(-1px, 0, 0); } 20%, 80% { transform: translate3d(2px, 0, 0); } 30%, 50%, 70% { transform: translate3d(-4px, 0, 0); } 40%, 60% { transform: translate3d(4px, 0, 0); } }
+
+/* 7. PORTFOLIO PAGE */
+#portfolio.portfolio-section { padding-top: var(--navbar-height); padding-bottom: 0; padding-left: 0; padding-right: 0; background-color: var(--secondary-color); }
+#portfolio.portfolio-section .container { max-width: 100%; padding: 0; }
+.portfolio-main-content { display: grid; grid-template-columns: 220px 1fr; align-items: flex-start; gap: 0; }
+.filter-buttons { position: sticky; top: var(--navbar-height); height: calc(100vh - var(--navbar-height)); overflow-y: auto; background-color: var(--background-color); padding: 25px; border-right: 1px solid #e0e0e0; }
+body.dark-mode .filter-buttons { border-right-color: #2a2a2a; }
 .filter-intro h3 { font-size: 1.2em; margin-bottom: 5px; }
 .filter-intro p { font-size: 0.7em; opacity: 0.7; line-height: 1.4; }
 .filter-intro { padding-bottom: 15px; margin-bottom: 15px; border-bottom: 1px solid #e0e0e0; }
 body.dark-mode .filter-intro { border-bottom-color: #333; }
-
-.filter-btn {
-    display: block; width: 100%; background-color: transparent; border: none;
-    padding: 6px 12px; font-weight: 800; font-size: 0.7em; color: var(--text-color);
-    margin: 8px 0;
-    opacity: 0.8; cursor: pointer; transition: all 0.3s ease; text-align: left; border-radius: 8px;
-}
-
+.filter-btn { display: block; width: 100%; background-color: transparent; border: none; padding: 6px 12px; font-weight: 800; font-size: 0.7em; color: var(--text-color); margin: 8px 0; opacity: 0.8; cursor: pointer; transition: all 0.3s ease; text-align: left; border-radius: 8px; }
 .filter-btn:hover { background-color: var(--secondary-color); opacity: 1; }
-
-.filter-btn.active {
-    background-color: var(--primary-color); color: var(--background-color); font-weight: 800; opacity: 1;
-    box-shadow: 0 4px 15px rgba(28, 104, 197, 0.2);
+.filter-btn.active { background-color: var(--primary-color); color: var(--background-color); font-weight: 800; opacity: 1; box-shadow: 0 4px 15px rgba(28, 104, 197, 0.2); }
+.portfolio-grid-wrapper { padding: 40px 40px; min-height: calc(100vh - var(--navbar-height)); }
+.portfolio-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    transition: opacity 0.4s ease; 
 }
-
-.portfolio-grid-wrapper {
-    padding: 40px 40px;
-    min-height: calc(100vh - var(--navbar-height));
-}
-
-.portfolio-grid {
-    display: grid;
-    /* Ganti baris di bawah ini */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-    /* Menjadi seperti ini */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    transition: opacity 0.4s ease;
-}
-
 .portfolio-grid.refreshing { opacity: 0; }
-
-.portfolio-item {
-    background-color: var(--portfolio-item-background);
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; flex-direction: column;
-}
-
+.portfolio-item { background-color: var(--portfolio-item-background); border-radius: 12px; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; }
 .portfolio-item:hover { transform: var(--portfolio-item-hover-transform); box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1); }
-.portfolio-item img {
-    width: 100%;
-    height: 140px; /* Menjaga tinggi wadah gambar tetap sama */
-    object-fit: contain; /* KUNCI: Membuat seluruh gambar muat tanpa terpotong */
-    display: block;
-    background-color: #e8edec; /* Latar belakang untuk sisa ruang (mode terang) */
-    transition: background-color 0.3s ease;
-}
+.portfolio-item img { width: 100%; height: 140px; object-fit: contain; display: block; background-color: #e8edec; transition: background-color 0.3s ease; }
 .portfolio-item .item-info { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
 .portfolio-item h3 { font-size: 1em; margin-bottom: 10px; color: var(--primary-color); }
 .portfolio-item .short-desc { font-size: 0.6em; margin-bottom: 15px; color: var(--text-color); flex-grow: 1; opacity: 0.8; }
 .portfolio-item .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-
-.portfolio-item .tags span {
-    background-color: var(--secondary-color); color: var(--primary-color);
-    font-size: 0.6em; font-weight: 600; padding: 4px 8px; border-radius: 20px;
-}
-
+.portfolio-item .tags span { background-color: var(--secondary-color); color: var(--primary-color); font-size: 0.6em; font-weight: 600; padding: 4px 8px; border-radius: 20px; }
 body.dark-mode .portfolio-item .tags span { background-color: #333; }
-
-.portfolio-item .btn-detail {
-    background-color: transparent; color: var(--primary-color); border: 1px solid var(--primary-color);
-    padding: 8px 20px; border-radius: 50px; font-size: 0.7em; font-weight: 600;
-    transition: all 0.3s ease; align-self: flex-start; margin-top: auto;
-}
-
+.portfolio-item .btn-detail { background-color: transparent; color: var(--primary-color); border: 1px solid var(--primary-color); padding: 8px 20px; border-radius: 50px; font-size: 0.7em; font-weight: 600; transition: all 0.3s ease; align-self: flex-start; margin-top: auto; }
 .portfolio-item .btn-detail:hover { background-color: var(--primary-color); color: var(--portfolio-item-background); transform: none; }
+.footer { background-color: var(--footer-background-color); color: var(--background-color); text-align: center; padding: 30px 0; font-size: 0.9em; transition: background-color 0.5s ease, color 0.5s ease; }
 
-/* --- Contact Section --- */
-.contact-section {
-    text-align: center;
-    padding-bottom: 72px;
-}
-
-.contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    align-items: start;
-    text-align: left;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.contact-text h2{
-    text-align: left;
-    color: var(--primary-color);
-}
-
-.contact-text p {
-    font-size: 1em;
-    max-width: 400px;
-    text-align: left;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid var(--contact-input-border);
-    border-radius: 8px;
-    background-color: var(--contact-input-background);
-    color: var(--text-color);
-    font-size: 1em;
-    transition: border-color 0.3s ease, background-color 0.5s ease, color 0.5s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-
-.contact-form textarea {
-    resize: vertical;
-}
-/* --- Bagian Footer Form yang Telah Diperbaiki --- */
-
-/* Wrapper untuk tombol dan social links */
-.form-footer {
-    display: flex;
-    align-items: center; /* KUNCI: Menyejajarkan semua item di dalamnya secara vertikal */
-    gap: 14px;           /* Jarak antara tombol dan grup social link */
-    margin-top: 10px;
-    flex-wrap: wrap;     /* Izinkan item turun ke bawah jika layar terlalu sempit */
-}
-
-.form-footer .btn-primary {
-    min-width: 100px;
-    margin: 0; /* Hapus margin default pada tombol */
-}
-
-/* Grup "or Find Me on" dan ikon */
-.social-links {
-    margin-top: 0;
-    display: flex;
-    align-items: center; /* Sejajarkan juga teks dan ikon di dalamnya */
-    gap: 15px;
-}
-
-.social-links p {
-    margin-bottom: 0;
-    font-size: 1em;
-    white-space: nowrap; /* Mencegah teks "or Find Me on" terpotong */
-}
-
-/* Ikon sosial media */
-.social-icons {
-    display: flex;       /* BENAR: Menggunakan flex, bukan 'cent' */
-    align-items: center; /* Sejajarkan ikon-ikon di dalamnya */
-    gap: 15px;
-    margin-left: 10px;
-}
-
-.social-icons a {
-    color: var(--social-icon-color);
-    font-size: 1.5em; /* Ukuran ikon sedikit disesuaikan agar pas */
-    line-height: 1;   /* Mencegah line-height aneh yang bisa mengganggu kesejajaran */
-    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: var(--social-icon-hover-color);
-    transform: translateY(-5px) scale(1.1);
-}
-
-.social-icons svg {
-    width: 32px;  /* Ukuran SVG disesuaikan */
-    height: 32px;
-    fill: currentColor;
-    display: block; /* Menghilangkan spasi ekstra di bawah SVG */
-}
-
-@keyframes shake {
-    10%, 90% { transform: translate3d(-1px, 0, 0); }
-    20%, 80% { transform: translate3d(2px, 0, 0); }
-    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-    40%, 60% { transform: translate3d(4px, 0, 0); }
-}
-
-
-/* --- Footer --- */
-.footer {
-    background-color: var(--footer-background-color);
-    color: var(--background-color);
-    text-align: center;
-    padding: 30px 0;
-    font-size: 0.9em;
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-/* --- MODAL (POP-UP) --- */
-.modal {
-    position: fixed; z-index: 1002; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6);
-    display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
+/* 8. MODAL & SWIPER */
+.modal { position: fixed; z-index: 1002; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
 .modal.show { opacity: 1; visibility: visible; }
-
 .modal-content {
-    background-color: var(--modal-background); margin: auto; padding: 35px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.25);
-    max-width: 640px; width: 90%; position: relative; transform: translateY(30px) scale(0.98); transition: transform 0.3s ease, background-color 0.3s ease;
+    background-color: var(--modal-background); margin: auto; 
+    padding: 35px; 
+    border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+    max-width: 710px;
+    width: 90%; position: relative; transform: translateY(30px) scale(0.98); transition: transform 0.3s ease, background-color 0.3s ease;
 }
-
 .modal.show .modal-content { transform: translateY(0) scale(1); }
 
+/* Wrapper gambar agar full width dan menempel ke atas */
+.modal-image-wrapper {
+    position: relative;
+    width: calc(100% + 70px); 
+    margin-top: -35px; 
+    margin-left: -35px; 
+    margin-right: -35px; 
+    margin-bottom: 25px; 
+    border-radius: 12px 12px 0 0; 
+    overflow: hidden;
+    background-color: #e8edec;
+}
+body.dark-mode .modal-image-wrapper { background-color: #2c2c2c; }
+
+/* Gambar utama di modal */
 .modal-preview-image {
-    max-width: 100%;      /* Gambar tidak akan melebihi lebar modal */
-    height: 320px;           /* Tinggi akan menyesuaikan secara otomatis untuk menjaga rasio aspek */
-    object-fit: contain;    /* Memastikan seluruh gambar (portrait/landscape) terlihat utuh */
-    display: block;         /* Untuk memastikan margin berfungsi dengan baik */
-    margin: 0 auto 25px;  /* Membuat gambar berada di tengah dan memberi jarak bawah */
-    border-radius: 8px;
+    max-width: 100%;
+    height: 400px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto; 
+    border-radius: 0;
+    transition: opacity 0.3s ease;
 }
 
+/* Tombol Keluar (Close Button) - Dicocokkan dengan Swiper Nav Button */
 .close-button {
-    color: var(--modal-close-button-color); font-size: 32px; font-weight: 300; position: absolute; top: 15px; right: 20px; cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.4); /* MATCH Swiper Button BG */
+    color: white; /* MATCH Swiper Button Text Color */
+    width: 24px;
+    height: 24px;
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1; 
+    position: absolute; 
+    top: 16px; 
+    right: 16px; 
+    cursor: pointer; 
+    z-index: 1004; 
+    transition: all 0.3s ease;
+}
+.close-button:hover { 
+    background-color: var(--primary-color); /* MATCH Swiper Button Hover BG */
+    transform: rotate(90deg) scale(1.1); 
+    color: white; /* MATCH Swiper Button Hover Text Color */
 }
 
-.close-button:hover { color: var(--primary-color); transform: rotate(90deg); }
+/* Tombol Navigasi Swiper */
+.modal-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 0.8em;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-nav-btn:hover { background: var(--primary-color); opacity: 1; }
+.modal-prev-btn { left: 16px; }
+.modal-next-btn { right: 16px; }
 
 #modal-title { font-size: 1.4em; color: var(--modal-h3-color); margin-bottom: 15px; }
 #modal-desc { font-size: 0.9em; line-height: 1.8; margin-bottom: 30px; opacity: 0.9; text-align: justify;}
@@ -780,407 +399,79 @@ body.dark-mode .portfolio-item .tags span { background-color: #333; }
 .modal-links a { font-size: 0.8em; font-weight: 600; color: var(--primary-color); display: inline-flex; align-items: center; gap: 8px; transition: all 0.3s ease; }
 .modal-links a:hover { color: var(--accent-color); transform: translateY(-8px); }
 .modal-details-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 25px; }
-@media (min-width: 768px) { .modal-details-grid { grid-template-columns: 1fr 1fr; } }
 .modal-section-title { font-size: 1.4em; margin-bottom: 15px; color: var(--modal-h4-color); border-bottom: 1px solid var(--secondary-color); padding-bottom: 8px; text-align: left; }
-.modal-content .tech-logos { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+.modal-content .tech-logos { 
+    display: grid; /* Diubah dari flex menjadi grid */
+    grid-template-columns: repeat(2, 1fr); /* Membuat 2 kolom dengan lebar yang sama */
+    gap: 15px 20px; /* Jarak antar baris 15px, jarak antar kolom 20px */
+    align-items: flex-start; 
+    /* Properti flex lama dihapus */
+}
 .modal-content .tech-logo-item { display: flex; align-items: center; gap: 10px; font-size: 0.8em; font-weight: 600; color: var(--tech-icon-item-color); }
 .modal-content .tech-logo-item img, .modal-content .tech-logo-item i { width: 35px; height: 35px; object-fit: contain; }
 .modal-content .tech-logo-item i { font-size: 35px; color: var(--modal-tech-logo-color); }
 .modal-content #modal-tech-tags.tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 0; }
+.modal-content .tags span { background-color: var(--secondary-color); color: var(--primary-color); font-size: 0.7em; font-weight: 600; padding: 6px 14px; border-radius: 20px; }
 
-.modal-content .tags span {
-    background-color: var(--secondary-color); color: var(--primary-color); font-size: 0.7em; font-weight: 600;
-    padding: 6px 14px; border-radius: 20px;
+
+/* 9. MEDIA QUERIES */
+@media (min-width: 768px) {
+    .modal-details-grid { grid-template-columns: 1fr 1fr; } 
 }
 
-
-/* === KODE BARU UNTUK SECTION ABOUT ME YANG CANTIK === */
-
-#about.about-section {
-    background: var(--background-color); /* Latar belakang polos untuk tampilan modern */
-    padding: 100px 0;
-    overflow: hidden; /* Mencegah elemen animasi keluar dari batas */
-    transition: background-color 0.3s ease;
-}
-
-.about-main-flex {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    margin-bottom: 80px;
-}
-
-/* === KODE BARU UNTUK MOSAIK FOTO DI 'ABOUT ME' === */
-
-/* Wrapper untuk menampung grid mosaik */
-.about-photo-mosaic-wrapper {
-    flex-shrink: 0;
-    width: 45%; /* Sesuaikan lebar wrapper sesuai kebutuhan */
-}
-
-/* Grid untuk mosaik foto */
-.about-photo-mosaic {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 15px;
-    height: 380px; /* Atur tinggi total mosaik */
-}
-
-
-
-.mosaic-item {
-    position: relative; /* Diperlukan untuk positioning absolut anak elemen */
-    overflow: hidden;   /* Kunci utama agar gambar tidak terlihat di luar kotak */
-    border-radius: 12px;
-}
-
-.mosaic-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    position: absolute; /* Tumpuk kedua gambar di posisi yang sama */
-    top: 0;
-    left: 0;
-    transition: transform 0.8s cubic-bezier(0.8, 0, 0.2, 1); /* Transisi untuk scroll */
-}
-
-.mosaic-image.visible {
-    transform: translateY(0); /* Posisi gambar yang sedang tampil */
-}
-
-.mosaic-image.hidden {
-    transform: translateY(100%); /* Posisi gambar berikutnya (di bawah) */
-}
-
-/* Mengatur posisi dan ukuran foto-foto di dalam grid */
-.mosaic-item:nth-child(1) {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3; /* Foto ini akan mengambil 2 baris (lebih tinggi) */
-}
-.mosaic-item:nth-child(2) {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-}
-.mosaic-item:nth-child(3) {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-}
-.mosaic-item:nth-child(4) {
-    display: none; /* Foto ke-4 disembunyikan di layout ini, bisa ditambahkan jika ingin 4 foto */
-}
-
-/* CSS untuk modal mosaik */
-#about-mosaic-modal .modal-content {
-    max-width: 700px;
-    text-align: center;
-}
-
-#modal-mosaic-story {
-    font-size: 1em;
-    line-height: 1.6;
-    margin-top: 20px;
-    color: var(--text-color);
-    opacity: 0.9;
-}
-
-.about-text-wrapper {
-    flex-grow: 1;
-}
-
-.about-heading {
-    font-size: 1em;
-    font-weight: 600;
-    color: var(--primary-color);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    text-align: left;
-}
-
-.about-subheading {
-    font-size: 2.5em; /* Lebih besar dan menonjol */
-    color: var(--text-color);
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.about-narrative {
-    font-size: 0.9em;
-    line-height: 1.6;
-    text-align: justify;
-    color: var(--text-color);
-    opacity: 0.85;
-    margin-bottom: 15px;
-}
-
-.about-narrative strong {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-/* GRID KARTU MINAT */
-.about-interests-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 80px;
-}
-
-.interest-card {
-    background: var(--secondary-color);
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid transparent;
-    transition: all 0.3s ease-in-out;
-}
-
-.interest-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-color);
-    background: var(--background-color);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-}
-
-.card-icon {
-    font-size: 2.5em;
-    color: var(--primary-color);
-    margin-bottom: 15px;
-    line-height: 1;
-}
-
-.card-title {
-    font-size: 1.2em;
-    color: var(--text-color);
-    margin-bottom: 10px;
-}
-
-.card-desc {
-    font-size: 0.9em;
-    color: var(--text-color);
-    opacity: 0.7;
-}
-
-/* TECH STACK BARU */
-.tech-stack-title {
-    text-align: center;
-    font-size: 2em;
-    color: var(--text-color);
-    margin-bottom: 40px;
-}
-
-.tech-icons-grid {
-    display: grid;
-    /* Mengatur grid agar memiliki tepat 5 kolom */
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 30px 20px;
-    justify-content: start;
-    max-width: 100%;
-    margin: 0;
-    overflow: hidden; 
-}
-
-.tech-icon-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-    font-size: 0.95em;
-    font-weight: 500;
-    color: var(--text-color);
-    opacity: 0;
-    transform: translateY(-20px);
-    
-    /* KUNCI: Menambahkan transisi pada transform dan box-shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 12px; /* Menambahkan radius agar bayangan terlihat bagus */
-    padding: 10px; /* Sedikit ruang di dalam item */
-}
-
-/* Kelas 'in-view' dari JavaScript akan memicu animasi 'dropIn' (INI TIDAK BERUBAH) */
-.tech-icon-item.in-view {
-    animation: dropIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-
-/* Mendefinisikan animasi 'dropIn' (INI TIDAK BERUBAH) */
-@keyframes dropIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px) scale(0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-
-.tech-icon-item img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.tech-icon-item img:hover {
-        transform: translateY(-5px) scale(1.1);
-}
-
-/* --- Responsif (Media Queries) --- */
 @media (max-width: 992px) {
+    /* Navbar dan Hero */
     .navbar .nav-links { display: none; }
     .mobile-menu-button { display: block; position: absolute; right: 20px; top: 15px; }
     .dark-mode-toggle { display: block; position: absolute; right: 70px; top: 15px; z-index: 1001; }
-    
-    .hero-content {
-        flex-direction: column-reverse; /* Gambar di atas, teks di bawah */
-        text-align: center;
-        gap: 20px;
-        padding-bottom: 40px;
-    }
+    .hero-content { flex-direction: column-reverse; text-align: center; gap: 20px; padding-bottom: 40px; }
+    .hero-content .profile-pic { width: 250px; height: 250px; margin-bottom: 20px; }
+    .hero-content .text-content { order: 2; text-align: center; max-width: 100%; }
+    .hero-content .cta-buttons { justify-content: center; }
 
-    .hero-content .profile-pic {
-        width: 250px;
-        height: 250px;
-        margin-bottom: 20px;
-    }
+    /* About Section */
+    .about-main-flex { flex-direction: column; gap: 40px; }
+    .about-photo-mosaic-wrapper { width: 100%; max-width: 400px; }
+    .about-text-wrapper, .about-heading, .about-subheading { text-align: center; }
 
-    .hero-content .text-content {
-        order: 2;
-        text-align: center;
-        max-width: 100%;
-    }
-    
-    .hero-content .cta-buttons {
-        justify-content: center;
-    }
-    
-    .about-main-flex {
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    .about-photo-mosaic-wrapper {
-        width: 100%;
-        max-width: 400px;
-    }
+    /* Contact Section */
+    .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+    .contact-text, .contact-text h2, .contact-text p { text-align: center; max-width: 100%; }
 
-    .about-text-wrapper, .about-heading, .about-subheading {
-        text-align: center;
-    }
-
-    .contact-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .contact-text {
-        text-align: center;
-    }
-
-    .contact-text h2, .contact-text p {
-        text-align: center;
-        max-width: 100%;
-    }
-
+    /* Portfolio Page */
     #portfolio.portfolio-section { padding-top: var(--navbar-height); }
-
-    .portfolio-main-content {
-        grid-template-columns: 1fr; /* Filter di atas, grid di bawah */
-    }
-
-    .filter-buttons {
-        position: static;
-        height: auto;
-        overflow-y: visible;
-        border: none;
-        width: 100%;
-        flex-direction: row; /* Kembali ke baris */
-        flex-wrap: wrap; /* Izinkan tombol untuk wrap */
-        justify-content: center; /* Tombol di tengah */
-        gap: 10px;
-        padding: 20px 15px;
-    }
-
-    .filter-btn {
-        width: auto; /* Lebar otomatis */
-        flex-grow: 1;
-        text-align: center;
-    }
-
-    .portfolio-grid-wrapper {
-        padding: 20px;
-    }
-    
-    .portfolio-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
-
-    .tech-icons-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    .portfolio-main-content { grid-template-columns: 1fr; }
+    .filter-buttons { position: static; height: auto; overflow-y: visible; border: none; width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 20px 15px; }
+    .filter-btn { width: auto; flex-grow: 1; text-align: center; }
+    .portfolio-grid-wrapper { padding: 20px; }
+    .portfolio-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); } 
+    .tech-icons-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding: 0 20px;
-    }
-
+    .container { padding: 0 20px; }
     h1 { font-size: 2.5em; }
     h2 { font-size: 2.0em; }
-    
-    .hero-section {
-        align-items: center; /* Pusatkan konten vertikal */
-    }
-
-    .about-interests-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .tech-icons-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
+    .hero-section { align-items: center; }
+    .about-interests-grid { grid-template-columns: 1fr; }
+    .tech-icons-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .modal-details-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
     h1 { font-size: 2em; }
     h2 { font-size: 1.8em; }
-
-    .container {
-        padding: 0 15px;
-    }
+    .container { padding: 0 15px; }
+    .hero-content .profile-pic { width: 200px; height: 200px; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-grid-wrapper { padding: 20px 15px; }
+    .tech-icons-grid { grid-template-columns: repeat(2, 1fr); }
     
-    .hero-content .profile-pic {
-        width: 200px;
-        height: 200px;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr; /* Satu kolom di layar sangat kecil */
-    }
-    
-    .portfolio-grid-wrapper {
-        padding: 20px 15px;
-    }
-
-    .tech-icons-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .modal-content {
-        padding: 25px;
-        width: 95%;
-    }
-
-    .modal-preview-image {
-        height: 250px;
-    }
-
-    #modal-title {
-        font-size: 1.2em;
-    }
+    /* Modal Kecil */
+    .modal-content { max-width: 95%; width: 95%; padding: 25px; }
+    .modal-image-wrapper { margin: -25px -25px 20px -25px; border-radius: 12px 12px 0 0; }
+    .modal-preview-image { height: 250px; }
+    #modal-title { font-size: 1.2em; }
+    .modal-nav-btn { display: none !important; }
+    .close-button { top: 5px; right: 5px; }
 }
